@@ -25,7 +25,7 @@
                         <table id="multi-colum-dt" class="table table-striped table-bordered nowrap" >
                     <thead>
                         <tr>
-                            <th class="text-center">#</th>
+                            <th class="text-center">ลำดับ</th>
                             <th class="text-center">ชื่อทัวร์ / Tour</th>
                             <th class="text-center">ทวีป / Continent</th>
                             <th class="text-center">ประเทศ / Country</th>
@@ -35,7 +35,7 @@
                     <tbody>
                             @foreach ($tour_all as $key => $r)
                         <tr>
-                            <th scope="row">{{$key+1}}</th>
+                            <th class="text-center" scope="row">{{$key+1}}</th>
                         <td>{{ $r->tour_name_th}} / {{ $r->tour_name_en}}</td>
                         
                         <td>{{ $r->continent_name_th}} / {{$r->continent_name_en}}</td>

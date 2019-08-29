@@ -107,14 +107,22 @@
         background-size: cover;
         position: relative;
     }
-
-    .slidecaption {
+    
+    /* .slidecaption {
         position: relative;
         color: #FFF;
         font-size: 72px;
         opacity: 0;
         font-family: 'Caveat Brush', cursive;
     }
+
+    .slidecaption2 {
+        position: relative;
+        color: #FFF;
+        font-size: 72px;
+        opacity: 0;
+        font-family: 'kanit', cursive;
+    } */
 
     .slideleft.actioncaption {
         -webkit-animation-name: slideInLeft;
@@ -278,7 +286,29 @@
 
     }
 </style>
+@if(Session::get('lang') == 'th')
+<style>
 
+.slidecaption {
+position: relative;
+color: #FFF;
+font-size: 72px;
+opacity: 0;
+font-family: 'kanit', cursive;
+}
+</style>
+@else
+<style>
+      .slidecaption {
+position: relative;
+color: #FFF;
+font-size: 72px;
+opacity: 0;
+font-family: 'Caveat Brush', cursive;
+}
+
+</style>
+@endif
 
 <body class="fullpage_scroll body_overflow">
 

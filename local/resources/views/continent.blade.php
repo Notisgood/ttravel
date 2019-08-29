@@ -26,22 +26,22 @@
         <table class="table table-hover" id="contre">
             <thead>
                 <tr>
-                    <th>ลำดับ</th>
-                    <th>ทวีป</th>
-                    <th>continent</th>
-                    <th>รายละเอียด</th>
-                    <th>detail</th>
-                    <th>#</th>
+                    <th class="text-center">ลำดับ</th>
+                    <th class="text-center">ทวีป</th>
+                    <th class="text-center">continent</th>
+                    <th class="text-center">รายละเอียด</th>
+                    <th class="text-center">detail</th>
+                    <th  >#</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($cont_all as $key => $r)
                 <tr>
-                    <td>{{  $key+1 }}</td>
-                    <td>{{ $r->continent_name_th }}</td>
-                    <td>{{ $r->continent_name_en }}</td>
-                    <td>{{ $r->continent_name_des_th }}</td>
-                    <td>{{ $r->continent_name_des_en }}</td>
+                    <td class="text-center">{{  $key+1 }}</td>
+                    <td class="text-center">{{ $r->continent_name_th }}</td>
+                    <td class="text-center">{{ $r->continent_name_en }}</td>
+                    <td class="text-center">{{ $r->continent_name_des_th }}</td>
+                    <td class="text-center">{{ $r->continent_name_des_en }}</td>
 
 
                     <td class=" icon-btn">
@@ -55,15 +55,7 @@
                 </tr>
                 @endforeach
             </tbody>
-            <tfoot>
-                <th>ลำดับ</th>
-                <th>ทวีป</th>
-                <th>continent</th>
-                <th>รายละเอียด</th>
-                <th>detail</th>
-                <th>#</th>
-                </tr>
-            </tfoot>
+            
         </table>
     </div>
 </div>

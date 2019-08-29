@@ -39,7 +39,7 @@
             <tbody>
                 @foreach($county_all as $key => $r)
                 <tr>
-                    <td>{{  $key+1 }}</td>
+                    <td class="text-center">{{  $key+1 }}</td>
                 <td>{{ $r->continent_name_th }} / {{ $r->continent_name_en}}</td>
                     <td>{{ $r->country_name_th }} / {{ $r->country_name_en }}</td>
                     <td>{{ $r->county_name_th }}</td>

@@ -357,13 +357,13 @@
                         <div class="col-12 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputname">{{Session::get('lang') == 'th' ? 'ชื่อ - สกุล' : 'Name - Surname'}} </label>
-                                <input type="name" class="form-control" id="exampleInputname" name="career_register_name">
+                                <input type="name" class="form-control" id="exampleInputname" name="career_register_name" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputmail">{{Session::get('lang') == 'th' ? 'อีเมล' : 'E-mail'}} </label>
-                                <input type="email" class="form-control" id="exampleInputmail" name="career_register_email">
+                                <input type="email" class="form-control" id="exampleInputmail" name="career_register_email" required>
                             </div>
                         </div>
                     </div>
@@ -371,13 +371,13 @@
                         <div class="col-12 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputtel">{{Session::get('lang') == 'th' ? 'โทรศัพท์' : 'Phone.'}}</label>
-                                <input type="number" class="form-control" id="exampleInputtel" name="career_register_tel">
+                                <input type="number" class="form-control" id="exampleInputtel" name="career_register_tel" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputline">{{Session::get('lang') == 'th' ? 'ไลน์' : 'Line'}}  </label>
-                                <input type="line" class="form-control" id="exampleInputline" name="career_register_line">
+                                <input type="text" class="form-control" id="exampleInputline" name="career_register_line" required>
                             </div>
                         </div>
                     </div>
@@ -385,8 +385,9 @@
                         <div class="col-4 col-md-4 col-lg-4"></div>
                         <div class="col-4 col-md-4 col-lg-4">
                             <div class="footer-send">
-                           <a  onclick="form_submit()">{{Session::get('lang') == 'th' ? 'ส่งข้อความ' : 'Send'}} </a>
-                   
+                           {{-- <a  onclick="form_submit()">{{Session::get('lang') == 'th' ? 'ส่งข้อความ' : 'Send'}} </a> --}}
+                           <button tpye="submit" form="jobregis" class="btn  btn-mat  btn-warning  ">{{Session::get('lang') == 'th' ? 'ส่งข้อความ' : 'Send'}}  </button>
+
                             </div>
                         </div>
                         <div class="col-4 col-md-4 col-lg-4">

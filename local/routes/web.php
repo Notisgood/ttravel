@@ -59,6 +59,8 @@ Route::get('wordbanneredit/{id}','bannerController@wordbanneredit')->name('wordb
 Route::post('wordbanneraddit','bannerController@wordbanneraddit')->name('wordbanneraddit');
 Route::post('wordbannereditupdate','bannerController@wordbannereditupdate')->name('wordbannereditupdate');
 Route::get('wordbannerdel/{id}','bannerController@wordbannerdel')->name('wordbannerdel');
+Route::get('worduse/{id}','bannerController@worduse')->name('worduse');
+Route::get('wordunuse/{id}','bannerController@wordunuse')->name('wordunuse');
 
 
 Route::get('tourpack', 'productTourController@tourpack')->name('tourpack');

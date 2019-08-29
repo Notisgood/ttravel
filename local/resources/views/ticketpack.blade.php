@@ -25,7 +25,7 @@
                 <table class="table table-hover" id="tourtb">
                     <thead>
                         <tr>
-                            <th class="text-center">#</th>
+                            <th class="text-center">ลำดับ</th>
                             <th class="text-center">ตั๋ว / Ticket</th>
                             <th class="text-center">ราคา / price</th>
                                 <th class="text-center">#.</th>
@@ -34,7 +34,7 @@
                     <tbody>
                             @foreach ($ticket_all as $key => $r)
                         <tr>
-                            <th scope="row">{{$key+1}}</th>
+                            <th class="text-center" scope="row">{{$key+1}}</th>
                         <td>{{ $r->ticket_name_th}} / {{ $r->ticket_name_en}}</td>
                         
                         <td>{{ $r->ticket_pri_th}} / {{$r->ticket_pri_en}}</td>

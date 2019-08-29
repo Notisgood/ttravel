@@ -21,11 +21,11 @@
 </div>
 
         <div class="card-block table-border-style">
-            <div class="table-responsive">
-                <table class="table table-hover" id="jobre">
+                <div class="dt-responsive table-responsive">
+                        <table id="multi-colum-dt" class="table table-striped table-bordered nowrap" >
                     <thead>
                         <tr>
-                            <th class="text-center">id</th>
+                            <th class="text-center">ลำดับ</th>
                             <th class="text-center">ตำแหน่ง</th>
                             <th class="text-center">ชื่อ</th>
                             <th class="text-center">อีเมล</th>
@@ -36,19 +36,23 @@
                     </thead>
                     <tbody>
                             @foreach($job as $key => $r)
+                            
+                                
+                           
                         <tr>
-                            <th scope="row">{{ $key+1}}</th>
+                            <th class="text-center" scope="row">{{ $key+1}}</th>
                             <td>{{ $r->position_th }} / {{ $r->position_en }}</td>
                
                             <td>{{ $r->career_register_name }}</td>
                             <td>{{ $r->career_register_email }}</td>
                             <td>{{ $r->career_register_tel }}</td>
                             <td>{{ $r->career_register_line }}</td>
-                            <td>{{ $r->created_at }}</td>
+
+                            <td>{{ $r->regis_created_at}}</td>
                             
                             
                         </tr>
-                        
+        
                         @endforeach
                     </tbody>
                 </table>

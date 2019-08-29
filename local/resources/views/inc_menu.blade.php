@@ -35,7 +35,7 @@ $permission = DB::table('access_role')->where('roles_id_no',Auth::user()->id)->f
                 <li class="">
                         <a href="{{ url('wordbanner')}}">
                             <span class="pcoded-micon"><i class="icofont icofont-billboard"></i></span>
-                            <span class="pcoded-mtext">จัดการคำบน Banner</span>
+                            <span class="pcoded-mtext">จัดการ Banner</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                 </li>

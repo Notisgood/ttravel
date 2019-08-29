@@ -15,6 +15,7 @@ class frontendController extends Controller{
     public function index()
     {
         $bannershow = DB::table('bannerword')
+        ->where('bannerword_status', '=', '1')
         ->get();
         return view('frontend.index',
         array(
@@ -52,11 +53,11 @@ class frontendController extends Controller{
             'career_register_tel' => $request->input('career_register_tel'),
             'career_register_line' => $request->input('career_register_line'),
             'career_register_career_id' => $request->input('career_register_career_id'),
-            'created_at'       =>  new DateTime,
+            'regis_created_at'       =>  new DateTime,
             
         );
         DB::table('career_register')->insert($data);
-        return redirect('career')->with('insert', '1');
+        return redirect('career');
     }
 
     public function contact()
@@ -78,7 +79,7 @@ class frontendController extends Controller{
         DB::table('email')->insert($data);
         $data = DB::table('email')->latest()->first();
         $res = [$data->email_name,$data->email_umail,$data->email_tel,$data->email_subject,$data->email_message];
-        $email = 'maxbaeiei@gmail.com';
+        $email = $request->input('email_umail');
         $name =  $request->input('email_name');
         $subject = $request->input('email_subject');
         Mail::send('frontend.mail', ['res' => $res], function ($m) use($email,$name,$subject){

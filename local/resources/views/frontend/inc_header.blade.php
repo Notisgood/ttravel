@@ -46,11 +46,25 @@
 @if(Session::has('lang'))
     @if(Session::get('lang') == 'TH')
         <style>
-            /* font-family */
+      
+    .slidecaption {
+        position: relative;
+        color: #FFF;
+        font-size: 72px;
+        opacity: 0;
+        font-family: 'kanit', cursive;
+    }
         </style>
     @else
         <style>
-            /* font-family */
+              .slidecaption {
+        position: relative;
+        color: #FFF;
+        font-size: 72px;
+        opacity: 0;
+        font-family: 'Caveat Brush', cursive;
+    }
+
         </style>
     @endif
 @else

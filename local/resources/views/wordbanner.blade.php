@@ -7,12 +7,12 @@
             <li class="breadcrumb-item" >
                 <a href="index.html"> <i class="fa fa-home"></i> </a>
             </li>
-            <li class="breadcrumb-item" ><a href="#!">จัดการคำบน Banner</a>
+            <li class="breadcrumb-item" ><a href="#!">จัดการ Banner</a>
             </li>
         </ul>
 
         <div class="text-right">
-                        <a href="{{ route('wordbanneradd')}}"><button type="button" class="btn btn-primary waves-effect"> เพิ่มคำบน Banner</button></a>   
+                        <a href="{{ route('wordbanneradd')}}"><button type="button" class="btn btn-primary waves-effect"> เพิ่ม Banner</button></a>   
         </div>
 
     </div>
@@ -25,7 +25,8 @@
                 <table class="table table-hover" id="bannerre">
                     <thead>
                         <tr>
-                            <th class="text-center">id</th>
+                            <th class="text-center">สถานะ </th>
+                            <th class="text-center">รูป</th>
                             <th  class="text-center" >Banner ไทย</th>
                             <th  class="text-center">Banner English</th>
                            
@@ -35,7 +36,16 @@
                     <tbody>
                             @foreach($bannerwords as $key => $r)
                         <tr>
-                            <th scope="row">{{  $key+1 }}</th>
+                            <td class="icon-btn" >
+                                @if ($r->bannerword_status == 1)
+                                <button class="btn btn-success btn-block  " onclick="ajax_unset({{$r->bannerword_id}})"><i class="icofont icofont-check-circled"> </i></button>
+
+                                @else
+                                <button class="btn btn-danger btn-block  " onclick="ajax_set({{$r->bannerword_id}})"><i class="icofont icofont-close-circled"> </i></button>
+
+                                @endif
+
+                            </td>
                             <td class="text-center" style="text-align:center">
                                 <img src="{{asset('local/assets/images/banner')}}/{{$r->bannerword_img}}" width="50%" >    
                                 </td>
@@ -122,4 +132,64 @@
         }
         
                 
+        </script>
+        <script>
+        
+        function delban(id){
+            swal({
+            title: "ยืนยัน?",
+            text: "คุณต้องการลบรายการนี้ หรือไม่?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "ยกเลิก",
+            confirmButtonText: "ยืนยัน",
+            closeOnConfirm: false
+            },
+            function(isConfirm) {
+            if (isConfirm) {
+                    $.get('{{url("worduse")}}' + '/' + id, function (data) {
+                        $('#bannerre').load(document.URL + ' #bannerre');
+                        if (data.bannerword_status === 1) {
+                        document.getElementById("permission_id1").checked = true;
+                    }
+                    });
+                    // window.location.href="staffdel/"+id+"";
+    
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            } else {
+                swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+        }
+
+        function ajax_set(id){
+        $.ajaxSetup({
+            async: false
+        });
+        $.ajax("{{url('worduse')}}/"+id,{
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+//                console.log(data);
+                $('#bannerre').load(document.URL +  ' #bannerre');
+            }
+        });
+    }
+
+    function ajax_unset(id){
+        $.ajaxSetup({
+            async: false
+        });
+        $.ajax("{{url('wordunuse')}}/"+id,{
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+//                console.log(data);
+                $('#bannerre').load(document.URL +  ' #bannerre');
+            }
+        });
+    }
+    
+
+    
         </script>

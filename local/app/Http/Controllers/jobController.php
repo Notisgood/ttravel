@@ -42,11 +42,14 @@ class jobController extends Controller{
     public function jobregis()
     {
         $job = DB::table('career_register')
-        ->join('career', 'career_register_career_id', 'career_id')
+        ->join('career', 'career_register.career_register_career_id', 'career.career_id')
         ->get();
+        
+        // dd($job);
         return view('jobregis',
         array(
             'job' => $job,
+     
         ));
     }
 

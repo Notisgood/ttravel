@@ -38,32 +38,33 @@ class BannerController extends Controller
         // return redirect('banner');
     }
 
-    public function banners()
-    {
-        $banners = DB::table('banner')
-            ->get();
-        return view('banner',
-            array(
-                'banners' => $banners,
+    // public function banners()
+    // {
+    //     $banners = DB::table('banner')
+    //         ->get();
+    //     return view('banner',
+    //         array(
+    //             'banners' => $banners,
                 
-            ));
-    }
+    //         ));
+    // }
 
-    public function banneradd()
-    {
-        return view('banneradd');
-    }
+    // public function banneradd()
+    // {
+    //     return view('banneradd');
+    // }
 
-    public function bannerdel($id)
-    {
+    // public function bannerdel($id)
+    // {
     
-        DB::table('banner')->where('banner_id', $id)->delete();
-        return Response::json();
-    }
+    //     DB::table('banner')->where('banner_id', $id)->delete();
+    //     return Response::json();
+    // }
 
     public function wordbanner()
     {
         $bannerwords = DB::table('bannerword')
+         
         ->get();
     return view('wordbanner',
         array(
@@ -157,6 +158,24 @@ class BannerController extends Controller
         );
         DB::table('bannerword')->where('bannerword_id', $request->input('id'))->update($data);
         return redirect()->route('wordbanner');
+    }
+
+    public function worduse($id)
+    {
+        $data = array(
+            'bannerword_status' => '1'
+        );
+        DB::table('bannerword')->where('bannerword_id', $id)->update($data);
+        return Response::json();
+    }
+
+    public function wordunuse($id)
+    {
+        $data = array(
+            'bannerword_status' => '0'
+        );
+        DB::table('bannerword')->where('bannerword_id', $id)->update($data);
+        return Response::json();
     }
 
     public function wordbannerdel($id)

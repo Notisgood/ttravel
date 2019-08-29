@@ -25,7 +25,7 @@
                 <table class="table table-hover" id="jobre">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th class="text-center">ลำดับ</th>
                             <th>ตำแหน่ง</th>
                             <th>Position</th>
                             <th>#</th>
@@ -34,7 +34,7 @@
                     <tbody>
                             @foreach($job as $key => $r)
                         <tr>
-                            <th scope="row">{{ $key+1}}</th>
+                            <th class="text-center" scope="row">{{ $key+1}}</th>
                             <td>{{ $r->position_th }}</td>
                             <td>{{ $r->position_en }}</td>
 

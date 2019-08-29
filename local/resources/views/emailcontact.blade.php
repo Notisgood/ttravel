@@ -7,7 +7,7 @@
             <li class="breadcrumb-item" >
                 <a href="index.html"> <i class="fa fa-home"></i> </a>
             </li>
-            <li class="breadcrumb-item" ><a href="#!">รายชื่อผู้สมัครงาน</a>
+            <li class="breadcrumb-item" ><a href="#!">รายการอีเมล</a>
             </li>
         </ul>
 
@@ -21,23 +21,24 @@
 </div>
 
         <div class="card-block table-border-style">
-            <div class="table-responsive">
-                <table class="table table-hover" id="jobre">
+            <div class="dt-responsive table-responsive">
+                <table id="multi-colum-dt" class="table table-striped table-bordered nowrap" >
                     <thead>
                         <tr>
-                            <th class="text-center">id</th>
-                            <th class="text-center">ตำแหน่ง</th>
+                            <th class="text-center">ลำดับ</th>
                             <th class="text-center">ชื่อ</th>
                             <th class="text-center">อีเมล</th>
+            
                             <th class="text-center">เบอร์โทร</th>
-                            <th class="text-center">ไลน์</th>                  
-                            <th class="text-center">#</th>
+                            <th class="text-center">หัวข้อเรื่อง</th>     
+                            <th class="text-center">วันที่</th>                 
+                          
                         </tr>
                     </thead>
                     <tbody>
                             @foreach($email as $key => $r)
                         <tr>
-                            <th scope="row">{{ $key+1}}</th>
+                            <th class="text-center" scope="row">{{ $key+1}}</th>
                             <td>{{ $r->email_name }} </td>
                
                             <td>{{ $r->email_umail }}</td>
