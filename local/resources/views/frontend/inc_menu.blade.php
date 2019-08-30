@@ -353,7 +353,9 @@
 		<a href="{{ url('index')}}"><img src="{{asset('local/filesss/images/logo-pap-1.png')}}" alt=""></a>
         <div class="wrap_btn_menu">
             <div class="btn_menu"><span></span><span></span><span></span></div>
-            <div class="text_btn_menu">{{Session::get('lang') == 'th' ? 'เมนู' :  'MENU'}}</div>
+            <div class="text_btn_menu">{{Session::get('lang') == 'th' ? 'เมนู' :  ' '}}
+                    {{Session::get('lang') == 'en' ? 'MENU' :  ' '}}
+                {{Session::get('lang') == 'cn' ? '菜單' :  ' '}}</div>
         </div>
         
         <div class="bg_mainmenu">
@@ -361,10 +363,25 @@
             <div class="wrap_mainmenu">
                 <div class="mainmenu">
                 	<div class="menu_logocompany"><img src="{{asset('local/filesss/images/logo-pap-1.png')}}" alt=""></div>
-                	<div class="list_mainmenu"><a href="{{url('index')}}">{{Session::get('lang') == 'th' ? 'หน้าหลัก' :  'HOME'}}</a></div>
-                	<div class="list_mainmenu"><a href="{{url('about')}}">{{Session::get('lang') == 'th' ? 'เกี่ยวกับ' :  'ABOUT US'}}</a></div>
+                    <div class="list_mainmenu"><a href="
+                        {{url('index')}}">{{Session::get('lang') == 'th' ? 'หน้าหลัก' :  ''}}
+                         {{Session::get('lang') == 'en' ? 'HOME' :  ' '}}
+                         {{Session::get('lang') == 'cn' ? '家' :  ' '}}
+
+                    </a></div>
+                    <div class="list_mainmenu"><a href="{{url('about')}}">
+                        {{Session::get('lang') == 'th' ? 'เกี่ยวกับ' :  ''}}
+                        {{Session::get('lang') == 'en' ? 'ABOUT US' :  ' '}}
+                        {{Session::get('lang') == 'cn' ? '關於我們' :  ' '}}
+
+                    </a></div>
                 	<div class="list_mainmenu">
-                		<a class="menu_services">{{Session::get('lang') == 'th' ? 'แพ็คเกจ ทัวร์' :  'PACKAGE TOUR'}}</a>
+                		<a class="menu_services">
+                            {{Session::get('lang') == 'th' ? 'แพ็คเกจ ทัวร์' :  ''}}
+                            {{Session::get('lang') == 'en' ? 'PACKAGE TOUR' :  ' '}}
+                            {{Session::get('lang') == 'cn' ? '包裹旅遊' :  ' '}}
+
+                        </a>
                         <div class="sub_listmenu">
                             @php
                                 $tawep = DB::table('continent')
@@ -373,7 +390,12 @@
                             @foreach ($tawep as $key => $r)
                                 
                             
-                			<a href="{{ route('package_tour',array('cd'=>$r->continent_id) )}}" class="asia"><i class="fa fa-caret-right" aria-hidden="true"></i> {{Session::get('lang') == 'th' ? $r->continent_name_th : $r->continent_name_en}}</a>
+                            <a href="{{ route('package_tour',array('cd'=>$r->continent_id) )}}" class="asia"><i class="fa fa-caret-right" aria-hidden="true"></i> 
+                                {{Session::get('lang') == 'th' ? $r->continent_name_th : '' }}
+                                {{Session::get('lang') == 'en' ? $r->continent_name_en : '' }}
+                                {{Session::get('lang') == 'cn' ? $r->continent_name_cn : '' }}
+
+                            </a>
                             <div class="sub_listmenu">
                                 @php
                                 $pated = DB::table('country')
@@ -384,38 +406,42 @@
                                 @foreach ($pated as $r2)
                                     
                                 
-                                <a href="{{ route('package_tour',array('cd'=>$r->continent_id))}}"> {{Session::get('lang') == 'th' ? $r2->country_name_th : $r2->country_name_en}}</a>
+                                <a href="{{ route('package_tour',array('cd'=>$r->continent_id))}}"> 
+                                    {{Session::get('lang') == 'th' ? $r2->country_name_th :  ''}}
+                                    {{Session::get('lang') == 'en' ? $r2->country_name_en :  ''}}
+                                    {{Session::get('lang') == 'cn' ? $r2->country_name_cn :  ''}}
+
+                                </a>
                                 @endforeach
-                                {{-- <a href="{{ url('package_tour') }}">จีน</a>
-                                <a href="{{ url('package_tour') }}">เวียดนาม</a>
-                                <a href="{{ url('package_tour') }}">เกาหลีใต้</a>
-                                <a href="{{ url('package_tour') }}">สิงคโปร์</a>
-                                <a href="{{ url('package_tour') }}">ฮ่องกง</a> --}}
+                                
                             </div>
                             @endforeach
-                            {{-- <a href="{{ url('package_tour') }}" class="asia"><i class="fa fa-caret-right" aria-hidden="true"></i> ยุโรป</a>
-                            <div class="sub_listmenu">
-                                <a href="{{ url('package_tour') }}">รัสเซีย</a>
-                                <a href="{{ url('package_tour') }}">ตุรกี</a>
-                                <a href="{{ url('package_tour') }}">อังกฤษ</a>
-                                <a href="{{ url('package_tour') }}">อิตาลี</a>
-                                <a href="{{ url('package_tour') }}">เยอรมันนี</a>
-                            </div>
-                            <a href="{{ url('package_tour') }}" class="asia"><i class="fa fa-caret-right" aria-hidden="true"></i> เที่ยวไทย</a>
-                            <div class="sub_listmenu">
-                                <a href="{{ url('package_tour') }}">สุโขทัย</a>
-                                <a href="{{ url('package_tour') }}">กาญจนบุรี</a>
-                                <a href="{{ url('package_tour') }}">กรุงเทพมหานคร</a>
-                                <a href="{{ url('package_tour') }}">ภูเก็ต</a>
-                                <a href="{{ url('package_tour') }}">เชียงใหม่</a>
-                            </div>
-                            <a href="{{ url('package_tour') }}" class="asia"><i class="fa fa-caret-right" aria-hidden="true"></i> อื่นๆ</a> --}}
+                            
                 		</div>
                 	</div>
-                    <div class="list_mainmenu"><a href="{{ url('exclusive_tour')}}">{{Session::get('lang') == 'th' ? 'ทัวร์พิเศษ' : 'EXCLUSIVE TOUR'}} </a></div>
-                    <div class="list_mainmenu"><a href="{{ url('ticket')}}">{{Session::get('lang') == 'th' ? 'ตั๋วเดินทาง' : 'TICKET'}}</a></div>
-                    <div class="list_mainmenu"><a href="{{ url('career')}}">{{Session::get('lang') == 'th' ? 'ตำแหน่งงาน' : 'CAREER'}}</a></div>
-                	<div class="list_mainmenu"><a href="{{ url('contact')}}">{{Session::get('lang') == 'th' ? 'ติดต่อเรา' : 'CONTACT US'}}</a></div>
+                    <div class="list_mainmenu"><a href="{{ url('exclusive_tour')}}">
+                        {{Session::get('lang') == 'th' ? 'ทัวร์พิเศษ' : ' '}}
+                        {{Session::get('lang') == 'en' ? 'EXCLUSIVE TOUR' : ''}} 
+                        {{Session::get('lang') == 'cn' ? '獨家旅遊' : ' '}}
+
+                    </a></div>
+                    <div class="list_mainmenu"><a href="{{ url('ticket')}}">
+                        {{Session::get('lang') == 'th' ? 'ตั๋วเดินทาง' : ' '}}
+                        {{Session::get('lang') == 'en' ? 'TICKET' : ' '}}
+                        {{Session::get('lang') == 'cn' ? '票' : ' '}}
+                    </a></div>
+                    <div class="list_mainmenu"><a href="{{ url('career')}}">
+                        {{Session::get('lang') == 'th' ? 'ตำแหน่งงาน' : ' '}}
+                        {{Session::get('lang') == 'en' ? 'CAREER' : ''}}
+                        {{Session::get('lang') == 'cn' ? '事業' : ''}}
+
+                    </a></div>
+                    <div class="list_mainmenu"><a href="{{ url('contact')}}">
+                        {{Session::get('lang') == 'th' ? 'ติดต่อเรา' : ''}}
+                        {{Session::get('lang') == 'en' ? 'CONTACT US' : ''}}
+                        {{Session::get('lang') == 'cn' ? '聯繫我們' : ' '}}
+                        
+                        </a></div>
                 	<div class="box_selectlang">
                 		<div>Copyright © 2019  Scoot Travel | All Rights Reserved</div>
                 	</div>

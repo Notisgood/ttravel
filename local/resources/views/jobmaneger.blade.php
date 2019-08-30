@@ -28,6 +28,7 @@
                             <th class="text-center">ลำดับ</th>
                             <th>ตำแหน่ง</th>
                             <th>Position</th>
+                            <th>Position cn</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -37,7 +38,7 @@
                             <th class="text-center" scope="row">{{ $key+1}}</th>
                             <td>{{ $r->position_th }}</td>
                             <td>{{ $r->position_en }}</td>
-
+                            <td>{{ $r->position_cn }}</td>
                             
                             <td class="icon-btn">
                                     <a href="{{ url('jobedit/'.$r->career_id)}}" class="btn btn-warning btn-sm waves-effect waves-light"><i class="fa fa-pencil  "></i></a>                            
@@ -55,42 +56,7 @@
 
 
 
-<div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">เพิ่มประเภทสินค้า</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="card-block">
-                    <form name="myfrom" method="post" action="">
-                        {{ csrf_field() }}
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">นับเป็น</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="product_code" required autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">ตัวคูณ</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="product_multiply" required
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary waves-effect col md-close" id="prooo">บันทึก</button>
-                <button type="button" class="btn btn-default waves-effect col " data-dismiss="modal">ยกเลิก</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
+ 
 @endsection
 <script>
 function deljob(id){

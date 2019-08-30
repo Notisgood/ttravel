@@ -139,15 +139,33 @@
                         <div class="col-12 col-md-6 col-lg-6">
                             <div class="text-readpackage">
                                 <h6><i class="fa fa-calendar" aria-hidden="true"></i> {{substr($tickett[0]->created_at,0,10)}}</h6>
-                                <h3>{{Session::get('lang') == 'th' ? $tickett[0]->ticket_name_th :  $tickett[0]->ticket_name_en}} </h3>
-                                <p>{{Session::get('lang') == 'th' ? 'ราคาเริ่มต้น' :  'Price'}} <span>{{Session::get('lang') == 'th' ? $tickett[0]->ticket_pri_th :  $tickett[0]->ticket_pri_en}} </span></p>
+                                <h3>
+                                    {{Session::get('lang') == 'th' ? $tickett[0]->ticket_name_th : '' }}
+                                    {{Session::get('lang') == 'en' ? $tickett[0]->ticket_name_en : '' }}
+                                    {{Session::get('lang') == 'cn' ? $tickett[0]->ticket_name_cn : '' }}
+
+                                 </h3>
+                                <p>
+                                    {{Session::get('lang') == 'th' ? 'ราคาเริ่มต้น' :  ''}}
+                                    {{Session::get('lang') == 'th' ? 'Price' :  ''}}
+                                    {{Session::get('lang') == 'th' ? '價錢' :  ''}}
+                                     <span>
+                                        {{Session::get('lang') == 'th' ? $tickett[0]->ticket_pri_th :  ''}}
+                                        {{Session::get('lang') == 'en' ? $tickett[0]->ticket_pri_en :  ''}}
+                                        {{Session::get('lang') == 'cn' ? $tickett[0]->ticket_pri_cn :  ''}}
+                                        </span></p>
                                 <div class="row bg-description">
                                     <div class="col-12">
                                         <ul class="description">
                                             @foreach ($ticketdetail as $r)
                                                 
                                             
-                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>{{Session::get('lang') == 'th' ? $r->ticket_detail_th :  $r->ticket_detail_en}} </li>
+                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                {{Session::get('lang') == 'th' ? $r->ticket_detail_th : '' }}
+                                                {{Session::get('lang') == 'en' ? $r->ticket_detail_en : '' }}
+                                                {{Session::get('lang') == 'cn' ? $r->ticket_detail_en : '' }}
+
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -157,37 +175,75 @@
                         </div>
                     </div>
                     <div class="itinerary">
-                        <h6> {{Session::get('lang') == 'th' ? $tickett[0]->ticket_name_th :  $tickett[0]->ticket_name_en}} </h6>
+                        <h6> 
+                            {{Session::get('lang') == 'th' ? $tickett[0]->ticket_name_th :  ''}} 
+                            {{Session::get('lang') == 'en' ? $tickett[0]->ticket_name_en :  ''}} 
+                            {{Session::get('lang') == 'cn' ? $tickett[0]->ticket_name_cn :  ''}} 
+
+                        </h6>
                     </div>
                     <div class="load-more-container">
                         <input type="checkbox" id="load-more" />
                         <ul>
                             <li style="background-color: #b58d42;">
-                                <h6>{{Session::get('lang') == 'th' ?  'วันที่จอง' : 'Ticketing Date'}} </h6>
+                                <h6>
+                                    {{Session::get('lang') == 'th' ?  'วันที่จอง' : ''}} 
+                                    {{Session::get('lang') == 'en' ?  'Ticketing Date' : ''}} 
+                                    {{Session::get('lang') == 'cn' ?  '票務日期' : ''}} 
+
+                                </h6>
                             </li>
                             <li style="background-color: #b58d42;">
-                                <h6>{{Session::get('lang') == 'th' ?  'วันเดินทาง' : 'Departure Date'}}  </h6>
+                                <h6>
+                                    {{Session::get('lang') == 'th' ?  'วันเดินทาง' : ''}} 
+                                    {{Session::get('lang') == 'en' ?  'Departure Date' : ''}} 
+                                    {{Session::get('lang') == 'cn' ?  '出發日期' : ''}} 
+
+                                </h6>
                             </li>
                             @foreach ($ticketdate as $r2)
                                 
                            
                             <li>
-                                <p>{{Session::get('lang') == 'th' ? $r2->ticket_date_th :  $r2->ticket_date_en}}  </p>
+                                <p>
+                                    {{Session::get('lang') == 'th' ? $r2->ticket_date_th : ''}}
+                                    {{Session::get('lang') == 'en' ? $r2->ticket_date_en : ''}}
+                                    {{Session::get('lang') == 'cn' ? $r2->ticket_date_cn : ''}}
+
+                                </p>
                             </li>
                             <li>
-                                    <p>{{Session::get('lang') == 'th' ? $r2->ticket_date_depart_th :  $r2->ticket_date_depart_en}} </p>
+                                    <p>
+                                        {{Session::get('lang') == 'th' ? $r2->ticket_date_depart_th : ''}} 
+                                        {{Session::get('lang') == 'en' ? $r2->ticket_date_depart_en : ''}} 
+                                        {{Session::get('lang') == 'cn' ? $r2->ticket_date_depart_cn : ''}} 
+
+                                    </p>
                                 </li>
                             @endforeach
                         </ul>
                         <label class="load-more-btn" for="load-more">
-                        <span class="unloaded">{{Session::get('lang') == 'th' ? 'ดูเพิ่มเติม' : 'MORE'}}  </span>
-                        <span class="loaded">{{Session::get('lang') == 'th' ?  'ข้างบน' : 'TOP'}}  </span>
+                        <span class="unloaded">
+                                {{Session::get('lang') == 'th' ? 'ดูเพิ่มเติม' : ''}}  
+                                {{Session::get('lang') == 'en' ? 'MORE' : ''}}  
+                                {{Session::get('lang') == 'cn' ? '更多' : ''}}  
+                        </span>
+                        <span class="loaded">
+                                {{Session::get('lang') == 'th' ?  'ข้างบน' : ''}} 
+                                {{Session::get('lang') == 'en' ?  'TOP' : ''}} 
+                                {{Session::get('lang') == 'cn' ?  '最佳' : ''}} 
+                         </span>
                       </label>
                     </div>
                     <div id="exTab1">
                         <ul class="nav nav-pills">
                             <li class="active">
-                                <a href="#5a" data-toggle="tab">{{Session::get('lang') == 'th' ? 'โปรโมชั่นนี้ระบุเที่ยวบิน' : 'Flight Promotions'}}  </a>
+                                <a href="#5a" data-toggle="tab">
+                                    {{Session::get('lang') == 'th' ? 'โปรโมชั่นนี้ระบุเที่ยวบิน' : ''}} 
+                                    {{Session::get('lang') == 'en' ? 'Flight Promotions' : ''}} 
+                                    {{Session::get('lang') == 'cn' ? '航班促銷' : ''}} 
+
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -198,7 +254,12 @@
                                     @foreach ($ticketpromo as $r3)
                                         
                                     
-                                    <li>{{Session::get('lang') == 'th' ? $r3->ticket_promo_name_th :  $r3->ticket_promo_name_en }} </li>
+                                    <li>
+                                        {{Session::get('lang') == 'th' ? $r3->ticket_promo_name_th :  '' }} 
+                                        {{Session::get('lang') == 'en' ? $r3->ticket_promo_name_en :  ''  }} 
+                                        {{Session::get('lang') == 'cn' ? $r3->ticket_promo_name_cn :  ''  }} 
+
+                                    </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -224,7 +285,12 @@
                                     <div class="hovereffect">
                                         <img class="img-fluid" src="{{ asset('local/assets/images/tour/'.$item2->tour_img)}}" alt="">
                                         <div class="overlay">
-                                           <h2>{{Session::get('lang') == 'th' ? $item2->tour_name_th :  $item2->tour_name_en}} </h2>
+                                           <h2>
+                                               {{Session::get('lang') == 'th' ? $item2->tour_name_th : ''}} 
+                                               {{Session::get('lang') == 'en' ? $item2->tour_name_en : ''}} 
+                                               {{Session::get('lang') == 'cn' ? $item2->tour_name_cn : ''}} 
+
+                                            </h2>
                                         </div>
                                     </div>
                                 </a>

@@ -82,8 +82,12 @@ class productTourController extends Controller{
             'ticket_img' =>              $tickimg,
             'ticket_name_th'        => $request->input('ticket_name_th'),
             'ticket_name_en'        => $request->input('ticket_name_en'),
+            'ticket_name_cn'        => $request->input('ticket_name_cn'),
+
             'ticket_pri_th'         => $request->input('ticket_pri_th'),
             'ticket_pri_en'         => $request->input('ticket_pri_en'),
+            'ticket_pri_cn'         => $request->input('ticket_pri_cn'),
+
             'created_at'            =>  new DateTime,
             'updated_at'            =>  new DateTime,
 
@@ -98,6 +102,8 @@ class productTourController extends Controller{
                 $val = array(
                     'ticket_detail_th'            =>  $key,
                     'ticket_detail_en'            =>  $request->input('ticket_detail_en')[$rowmain],
+                    'ticket_detail_cn'            =>  $request->input('ticket_detail_cn')[$rowmain],
+
                     'ticket_detail_ticket_id'       =>  $lastcatid->ticket_id,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -117,8 +123,10 @@ class productTourController extends Controller{
                 $val = array(
                     'ticket_date_th'            =>  $key,
                     'ticket_date_en'            =>  $request->input('ticket_date_en')[$rowmain],
+                    'ticket_date_cn'            =>  $request->input('ticket_date_cn')[$rowmain],
                     'ticket_date_depart_th'            =>  $request->input('ticket_date_depart_th')[$rowmain],
                     'ticket_date_depart_en'            =>  $request->input('ticket_date_depart_en')[$rowmain],
+                    'ticket_date_depart_cn'            =>  $request->input('ticket_date_depart_cn')[$rowmain],
                     'ticket_date_ticket_id'       =>  $lastcatid->ticket_id,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -138,6 +146,8 @@ class productTourController extends Controller{
                 $val = array(
                     'ticket_promo_name_th'            =>  $key,
                     'ticket_promo_name_en'            =>  $request->input('ticket_promo_name_en')[$rowmain],
+                    'ticket_promo_name_cn'            =>  $request->input('ticket_promo_name_cn')[$rowmain],
+
                     'ticket_promo_ticket_id'       =>  $lastcatid->ticket_id,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -200,7 +210,8 @@ class productTourController extends Controller{
             'ticket_name_en'        => $request->input('ticket_name_en'),
             'ticket_pri_th'         => $request->input('ticket_pri_th'),
             'ticket_pri_en'         => $request->input('ticket_pri_en'),
-           
+            'ticket_name_cn'        => $request->input('ticket_name_cn'),
+            'ticket_pri_cn'         => $request->input('ticket_pri_cn'),
             'updated_at'            =>  new DateTime,
 
 
@@ -216,6 +227,8 @@ class productTourController extends Controller{
                 $val = array(
                     'ticket_detail_th'            =>  $key,
                     'ticket_detail_en'            =>  $request->input('ticket_detail_en')[$rowmain],
+                    'ticket_detail_cn'            =>  $request->input('ticket_detail_cn')[$rowmain],
+
                     'ticket_detail_ticket_id'       =>  $lastcatid,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -236,8 +249,10 @@ class productTourController extends Controller{
                 $val = array(
                     'ticket_date_th'            =>  $key,
                     'ticket_date_en'            =>  $request->input('ticket_date_en')[$rowmain],
+                    'ticket_date_cn'            =>  $request->input('ticket_date_cn')[$rowmain],
                     'ticket_date_depart_th'            =>  $request->input('ticket_date_depart_th')[$rowmain],
                     'ticket_date_depart_en'            =>  $request->input('ticket_date_depart_en')[$rowmain],
+                    'ticket_date_depart_cn'            =>  $request->input('ticket_date_depart_cn')[$rowmain],
                     'ticket_date_ticket_id'       =>  $lastcatid,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -258,6 +273,8 @@ class productTourController extends Controller{
                 $val = array(
                     'ticket_promo_name_th'            =>  $key,
                     'ticket_promo_name_en'            =>  $request->input('ticket_promo_name_en')[$rowmain],
+                    'ticket_promo_name_cn'            =>  $request->input('ticket_promo_name_cn')[$rowmain],
+
                     'ticket_promo_ticket_id'       =>  $lastcatid,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -454,6 +471,14 @@ class productTourController extends Controller{
             'tour_detail_en'        => $request->input('tour_detail_en'),
             'tour_term_th'          => $request->input('tour_term_th'),
             'tour_term_en'          => $request->input('tour_term_en'),
+            'tour_name_cn'          => $request->input('tour_name_cn'),
+            'tour_pri_cn'           => $request->input('tour_pri_cn'),
+            'tour_airline_cn'       => $request->input('tour_airline_cn'),
+            'tour_time_cn'          => $request->input('tour_time_cn'),
+            'tour_duration_cn'      => $request->input('tour_duration_cn'),
+            'tour_des_cn'           => $request->input('tour_des_cn'),
+            'tour_detail_cn'        => $request->input('tour_detail_cn'),
+            'tour_term_cn'          => $request->input('tour_term_cn'),
             'created_at'            =>  new DateTime,
             'updated_at'            =>  new DateTime,
 
@@ -469,7 +494,9 @@ class productTourController extends Controller{
                     'tr_date_th'            =>  $key,
                     'tr_date_en'            =>  $request->input('tr_date_en')[$rowmain],
                     'tr_date_pri_th'        =>  $request->input('tr_date_pri_th')[$rowmain],
-                    'tr_date_pri_en'       =>  $request->input('tr_date_pri_en')[$rowmain],
+                    'tr_date_pri_en'        =>  $request->input('tr_date_pri_en')[$rowmain],
+                    'tr_date_cn'            =>  $request->input('tr_date_cn')[$rowmain],
+                    'tr_date_pri_cn'        =>  $request->input('tr_date_pri_cn')[$rowmain],
                     'tr_date_tour_id'       =>  $lastcatid->tour_id,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -547,6 +574,14 @@ class productTourController extends Controller{
             'tour_detail_en'        => $request->input('tour_detail_en'),
             'tour_term_th'          => $request->input('tour_term_th'),
             'tour_term_en'          => $request->input('tour_term_en'),
+            'tour_name_cn'          => $request->input('tour_name_cn'),
+            'tour_pri_cn'           => $request->input('tour_pri_cn'),
+            'tour_airline_cn'       => $request->input('tour_airline_cn'),
+            'tour_time_cn'          => $request->input('tour_time_cn'),
+            'tour_duration_cn'      => $request->input('tour_duration_cn'),
+            'tour_des_cn'           => $request->input('tour_des_cn'),
+            'tour_detail_cn'        => $request->input('tour_detail_cn'),
+            'tour_term_cn'          => $request->input('tour_term_cn'),
             'updated_at'            =>  new DateTime,
 
         );
@@ -563,6 +598,8 @@ class productTourController extends Controller{
                     'tr_date_en'            =>  $request->input('tr_date_en')[$rowmain],
                     'tr_date_pri_th'        =>  $request->input('tr_date_pri_th')[$rowmain],
                     'tr_date_pri_en'       =>  $request->input('tr_date_pri_en')[$rowmain],
+                    'tr_date_cn'            =>  $request->input('tr_date_cn')[$rowmain],
+                    'tr_date_pri_cn'        =>  $request->input('tr_date_pri_cn')[$rowmain],
                     'tr_date_tour_id'       =>  $lastcatid,
                     'created_at'            =>  new DateTime,
                     'updated_at'            =>  new DateTime,
@@ -670,12 +707,14 @@ class productTourController extends Controller{
     public function addcont(Request $request)
     {
         $data = array(
-            'continent_name_th' => $request->input('continent_name_th'),
-            'continent_name_en' => $request->input('continent_name_en'),
+            'continent_name_th'     => $request->input('continent_name_th'),
+            'continent_name_en'     => $request->input('continent_name_en'),
             'continent_name_des_th' => $request->input('continent_name_des_th'),
             'continent_name_des_en' => $request->input('continent_name_des_en'),
-            'created_at'       =>  new DateTime,
-            'updated_at'       =>  new DateTime,
+            'continent_name_cn'     => $request->input('continent_name_cn'),
+            'continent_name_des_cn' => $request->input('continent_name_des_cn'),
+            'created_at'            =>  new DateTime,
+            'updated_at'            =>  new DateTime,
             
         );
         DB::table('continent')->insert($data);
@@ -685,11 +724,13 @@ class productTourController extends Controller{
     public function contupdate(Request $request)
     {
         $data = array(
-            'continent_name_th' => $request->input('continent_name_th'),
-            'continent_name_en' => $request->input('continent_name_en'),
+            'continent_name_th'     => $request->input('continent_name_th'),
+            'continent_name_en'     => $request->input('continent_name_en'),
             'continent_name_des_th' => $request->input('continent_name_des_th'),
             'continent_name_des_en' => $request->input('continent_name_des_en'),
-            'updated_at'       =>  new DateTime,
+            'continent_name_cn'     => $request->input('continent_name_cn'),
+            'continent_name_des_cn' => $request->input('continent_name_des_cn'),
+            'updated_at'            =>  new DateTime,
         );
         DB::table('continent')->where('continent_id', $request->input('id'))->update($data);
         return redirect()->route('continent');
@@ -721,13 +762,16 @@ class productTourController extends Controller{
     public function countadd(Request $request)
     {
         $data = array(
-            'country_continent_id' => $request->input('country_continent_id'),
-            'country_name_th' => $request->input('country_name_th'),
-            'country_name_en' => $request->input('country_name_en'),
-            'country_des_th' => $request->input('country_des_th'),
-            'country_des_en' => $request->input('country_des_en'),
-            'created_at'       =>  new DateTime,
-            'updated_at'       =>  new DateTime,
+            'country_continent_id'  => $request->input('country_continent_id'),
+            'country_name_th'       => $request->input('country_name_th'),
+            'country_name_en'       => $request->input('country_name_en'),
+            'country_des_th'        => $request->input('country_des_th'),
+            'country_des_en'        => $request->input('country_des_en'),
+            'country_name_cn'       => $request->input('country_name_cn'),
+            'country_des_cn'        => $request->input('country_des_cn'),
+
+            'created_at'            =>  new DateTime,
+            'updated_at'            =>  new DateTime,
             
         );
         DB::table('country')->insert($data);
@@ -737,12 +781,14 @@ class productTourController extends Controller{
     public function countupdate(Request $request)
     {
         $data = array(
-            'country_continent_id' => $request->input('country_continent_id'),
-            'country_name_th' => $request->input('country_name_th'),
-            'country_name_en' => $request->input('country_name_en'),
-            'country_des_th' => $request->input('country_des_th'),
-            'country_des_en' => $request->input('country_des_en'),
-            'updated_at'       =>  new DateTime,
+            'country_continent_id'  => $request->input('country_continent_id'),
+            'country_name_th'       => $request->input('country_name_th'),
+            'country_name_en'       => $request->input('country_name_en'),
+            'country_des_th'        => $request->input('country_des_th'),
+            'country_des_en'        => $request->input('country_des_en'),
+            'country_name_cn'       => $request->input('country_name_cn'),
+            'country_des_cn'        => $request->input('country_des_cn'),
+            'updated_at'            =>  new DateTime,
         );
         DB::table('country')->where('country_id', $request->input('id'))->update($data);
         return redirect()->route('country');
@@ -798,6 +844,8 @@ class productTourController extends Controller{
             'county_name_en' => $request->input('county_name_en'),
             'county_des_th' => $request->input('county_des_th'),
             'county_des_en' => $request->input('county_des_en'),
+            'county_name_cn' => $request->input('county_name_cn'),
+            'county_des_cn' => $request->input('county_des_cn'),
             'created_at'       =>  new DateTime,
             'updated_at'       =>  new DateTime,
             
@@ -814,6 +862,8 @@ class productTourController extends Controller{
             'county_name_en' => $request->input('county_name_en'),
             'county_des_th' => $request->input('county_des_th'),
             'county_des_en' => $request->input('county_des_en'),
+            'county_name_cn' => $request->input('county_name_cn'),
+            'county_des_cn' => $request->input('county_des_cn'),
             'created_at'       =>  new DateTime,
             'updated_at'       =>  new DateTime,
         );

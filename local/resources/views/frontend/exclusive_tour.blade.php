@@ -139,10 +139,25 @@
                                     <img src="{{ asset('local/assets/images/tour/'.$r2->tour_img)}}" class="img-fluid">
                                 </div>
                                 <h6><i class="fa fa-calendar" aria-hidden="true"></i> {{substr($r2->created_at,0,10)}}</h6>
-                                <h3>{{Session::get('lang') == 'th' ? $r2->tour_name_th :  $r2->tour_name_en}} </h3>
-                                <p> {{Session::get('lang') == 'th' ? $r2->tour_des_th :  $r2->tour_des_en}} </p>
+                                <h3>
+                                    {{Session::get('lang') == 'th' ? $r2->tour_name_th :  ''}} 
+                                    {{Session::get('lang') == 'en' ? $r2->tour_name_en :  ''}} 
+                                    {{Session::get('lang') == 'cn' ? $r2->tour_name_cn :  ''}} 
+
+                                </h3>
+                                <p> 
+                                    {{Session::get('lang') == 'th' ? $r2->tour_des_th :  ''}}
+                                    {{Session::get('lang') == 'en' ? $r2->tour_des_en :  ''}}
+                                    {{Session::get('lang') == 'cn' ? $r2->tour_des_cn :  ''}}
+
+                                </p>
                                 <div class="view-exclusive">
-                                    <a href="{{ route('readpackage_tour',array('cd'=>$r2->tour_id))}}">{{Session::get('lang') == 'th' ? 'ดูรายละเอียด' :  'View Details'}} </a>
+                                    <a href="{{ route('readpackage_tour',array('cd'=>$r2->tour_id))}}">
+                                            {{Session::get('lang') == 'th' ? 'ดูรายละเอียด' :  ''}}
+                                            {{Session::get('lang') == 'en' ? 'View Details' :  ''}}
+                                            {{Session::get('lang') == 'cn' ? '查看詳情' :  ''}}
+
+                                    </a>
                                 </div>
                             </div>
                         </div>

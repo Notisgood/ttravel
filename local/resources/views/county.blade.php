@@ -31,8 +31,7 @@
                     <th>ประเทศ / Country</th>
                     <th>จังหวัด</th>
                     <th>County</th>
-                    <th>รายละเอียด</th>
-                    <th>detail</th>
+                    <th>County cn</th>
                     <th>#</th>
                 </tr>
             </thead>
@@ -40,12 +39,12 @@
                 @foreach($county_all as $key => $r)
                 <tr>
                     <td class="text-center">{{  $key+1 }}</td>
-                <td>{{ $r->continent_name_th }} / {{ $r->continent_name_en}}</td>
-                    <td>{{ $r->country_name_th }} / {{ $r->country_name_en }}</td>
+                <td>{{ $r->continent_name_th }} / {{ $r->continent_name_en}} / {{ $r->continent_name_cn}}</td>
+                    <td>{{ $r->country_name_th }} / {{ $r->country_name_en }} / {{ $r->country_name_cn }}</td>
                     <td>{{ $r->county_name_th }}</td>
                     <td>{{ $r->county_name_en }}</td>
-                    <td>{{ $r->county_des_th }}</td>
-                    <td>{{ $r->county_des_en }}</td>
+                    <td>{{ $r->county_name_cn }}</td>
+
 
                     <td class=" icon-btn">
 
@@ -84,7 +83,7 @@
                                 <option value="">เลือกทวีป</option>
                                 @foreach($cont_all as $key => $r)
                                 <option value="{{ $r->continent_id }}">
-                                    {{ $r->continent_name_th.' :: '.$r->continent_name_en  }}
+                                    {{ $r->continent_name_th.' :: '.$r->continent_name_en.' :: '.$r->continent_name_cn  }}
                                 </option>
                                 @endforeach
                                 </select>
@@ -109,20 +108,35 @@
                                 <input type="text" class="form-control" name="county_name_th" required
                                     autocomplete="off">
                             </div>
-                            <label class="col-sm-2 col-form-label text-center text-middle">County</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="county_name_en" required
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center text-middle">รายละเอียด</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="county_des_th"  
                                     autocomplete="off">
-                            </div><label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">County</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="county_name_en" required
+                                        autocomplete="off">
+                                </div>
+                           
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="county_des_en"  
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">County cn</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="county_name_cn" required
+                                        autocomplete="off">
+                                </div>
+                           
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail cn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="county_des_cn"  
                                     autocomplete="off">
                             </div>
                         </div>
@@ -158,11 +172,11 @@
                                 {{-- select2 ajax query --}}
                                 
                                 <select name="country_continent_id2" id="country_continent_id2"  data-id="{{$r->county_id}}" class="form-control col-sm-10" required >
-                                <option value="{{ $r->country_continent_id }}">{{ $r->continent_name_th.' :: '.$r->continent_name_en  }}</option>
+                                <option value="{{ $r->country_continent_id }}">{{ $r->continent_name_th.' :: '.$r->continent_name_en.' :: '.$r->continent_name_cn   }}</option>
                                 <option>---- กรุณาเลือก ----</option>
                                 @foreach($cont_all as $key => $r2)
                                 <option value="{{ $r2->continent_id }}">
-                                    {{ $r2->continent_name_th.' :: '.$r2->continent_name_en  }}
+                                    {{ $r2->continent_name_th.' :: '.$r2->continent_name_en.' :: '.$r2->continent_name_cn  }}
                                 </option>
                                 @endforeach
                                 </select>
@@ -172,7 +186,7 @@
                                 {{-- select2 ajax query --}}
                                 
                                 <select name="county2" id="county{{$r->county_id}}" class="form-control col-sm-10 county2" required >
-                                <option value="{{ $r->county_country_id}}">{{ $r->country_name_th.' :: '.$r->country_name_en  }}</option>
+                                <option value="{{ $r->county_country_id}}">{{ $r->country_name_th.' :: '.$r->country_name_en.' :: '.$r->country_name_cn  }}</option>
                                 <option>---- กรุณาเลือก ----</option>
 
                                 {{-- @foreach($count_all as $key => $r3)
@@ -189,22 +203,38 @@
                                 <input type="text" class="form-control" name="county_name_th" required
                                     value="{{$r->county_name_th}}" required autocomplete="off">
                             </div>
-                            <label class="col-sm-2 col-form-label text-center text-middle">County</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="county_name_en" required
-                                    value="{{$r->county_name_en}}" required autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center text-middle">รายละเอียด</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="county_des_th"
                                     value="{{$r->county_des_th}}" required autocomplete="off">
-                            </div><label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
+                            </div>
+                           
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">County</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="county_name_en" required
+                                        value="{{$r->county_name_en}}" required autocomplete="off">
+                                </div>
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="county_des_en"
                                     value="{{$r->county_des_en}}" required autocomplete="off">
                             </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">County</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="county_name_cn" required
+                                        value="{{$r->county_name_cn}}" required autocomplete="off">
+                                </div>
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="county_des_cn"
+                                    value="{{$r->county_des_cn}}" required autocomplete="off">
+                            </div>
+                            
                         </div>
                 </div>
             </div>
@@ -247,7 +277,7 @@ $(document).ready(function(){
                     $('#county').empty();
                         item += '<option value="">เลือกประเทศ</option>';
                         $.each(data,function(k,v){
-                           item += '<option value="'+v.country_id+'">'+v.country_name_th+' / '+v.country_name_en+'</option>'; 
+                           item += '<option value="'+v.country_id+'">'+v.country_name_th+' / '+v.country_name_en+' / '+v.country_name_cn+'</option>'; 
                         });
                         $('#county').append(item);
                         
@@ -317,7 +347,7 @@ $(document).on('change', "#country_continent_id2", function() {
                             $('#county'+county_id).empty();
                                 item += '<option value="">เลือกประเทศ</option>';
                                 $.each(data,function(k,v){
-                                   item += '<option value="'+v.country_id+'">'+v.country_name_th+' / '+v.country_name_en+'</option>'; 
+                                   item += '<option value="'+v.country_id+'">'+v.country_name_th+' / '+v.country_name_en+' / '+v.country_name_cn+'</option>'; 
                                 });
                                 $('#county'+county_id).append(item);
                             

@@ -87,6 +87,8 @@ class jobController extends Controller{
         $data = array(
             'position_th'       => $request->input('position_th'),
             'position_en'       => $request->input('position_en'),
+            'position_cn'       => $request->input('position_cn'),
+
             'created_at'        =>  new DateTime,
             'updated_at'        =>  new DateTime,
 
@@ -101,6 +103,7 @@ class jobController extends Controller{
                 $val = array(
                     'duty_th'          =>  $key,
                     'duty_en'          =>  $request->input('duty_en')[$rowmain],
+                    'duty_cn'          =>  $request->input('duty_cn')[$rowmain],
                     'career_duty_id'   =>  $lastcatid->career_id,
                     'created_at'       =>  new DateTime,
                     'updated_at'       =>  new DateTime,
@@ -122,6 +125,8 @@ class jobController extends Controller{
                     'property_detail_th'        =>  $request->input('property_detail_th')[$rowmain],
                     'property_name_en'          =>  $request->input('property_name_en')[$rowmain],
                     'property_detail_en'        =>  $request->input('property_detail_en')[$rowmain],
+                    'property_name_cn'          =>  $request->input('property_name_cn')[$rowmain],
+                    'property_detail_cn'        =>  $request->input('property_detail_cn')[$rowmain],
                     'property_career_id'        =>  $lastcatid->career_id,
                     'created_at'                =>  new DateTime,
                     'updated_at'                =>  new DateTime,
@@ -141,6 +146,7 @@ class jobController extends Controller{
         $data = array(
             'position_th'       => $request->input('position_th'),
             'position_en'       => $request->input('position_en'),
+            'position_cn'       => $request->input('position_cn'),
             'updated_at'        =>  new DateTime,
         );
         DB::table('career')->where('career_id', $request->input('id'))->update($data);
@@ -154,6 +160,8 @@ class jobController extends Controller{
                 $val = array(
                     'duty_th'          =>  $key,
                     'duty_en'          =>  $request->input('duty_en')[$rowmain],
+                    'duty_cn'          =>  $request->input('duty_cn')[$rowmain],
+
                     'career_duty_id'   =>  $lastcatid,
                     'updated_at'       =>  new DateTime,
                 );
@@ -175,6 +183,8 @@ class jobController extends Controller{
                     'property_detail_th'        =>  $request->input('property_detail_th')[$rowmain],
                     'property_name_en'          =>  $request->input('property_name_en')[$rowmain],
                     'property_detail_en'        =>  $request->input('property_detail_en')[$rowmain],
+                    'property_name_cn'          =>  $request->input('property_name_cn')[$rowmain],
+                    'property_detail_cn'        =>  $request->input('property_detail_cn')[$rowmain],
                     'property_career_id'        =>  $lastcatid,
                     'created_at'                =>  new DateTime,
                     'updated_at'                =>  new DateTime,

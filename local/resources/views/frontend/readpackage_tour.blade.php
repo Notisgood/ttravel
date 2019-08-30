@@ -137,36 +137,107 @@
                         <div class="col-12 col-lg-12 col-xl-6">
                             <div class="text-readpackage">
                                 <h6><i class="fa fa-calendar" aria-hidden="true"></i> {{substr($tourdshow[0]->created_at,0,10)}}</h6>
-                                <h3>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_name_th : $tourdshow[0]->tour_name_en}}  </h3>
-                                <p>{{Session::get('lang') == 'th' ? 'ติดต่อสอบถามโปรแกรมทัวร์' :  'Contact for information '}}   </p>
+                                <h3>
+                                    {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_name_th :  ''}}  
+                                    {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_name_en :  ''}}  
+                                    {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_name_cn :  ''}}  
+
+                                </h3>
+                                <p>
+                                    {{Session::get('lang') == 'th' ? 'ติดต่อสอบถามโปรแกรมทัวร์' :  ' '}}
+                                    {{Session::get('lang') == 'en' ? 'Contact for information' :  ' '}} 
+                                    {{Session::get('lang') == 'cn' ? '聯繫以獲取信息' :  ' '}} 
+
+                                </p>
                                 <div class="img-readpackage">
                                     <a href=""><img src="{{ asset('local/filesss/images/icon-footer-5.png')}}" class="img-fluid"></a><a href=""><img src="{{ asset('local/filesss/images/icon-footer-6.png')}}" class="img-fluid"></a>
                                 </div>
-                                <p>{{Session::get('lang') == 'th' ? 'ราคาเริ่มต้น' : 'Price'}} <span>{{Session::get('lang') == 'th' ?  $tourdshow[0]->tour_pri_th :   $tourdshow[0]->tour_pri_en}}</span></p>
+                                <p>
+                                    {{Session::get('lang') == 'th' ? 'ราคาเริ่มต้น' : ''}} 
+                                    {{Session::get('lang') == 'en' ? 'Price' : ''}} 
+                                    {{Session::get('lang') == 'cn' ? '價錢' : ''}} 
+
+                                    <span>
+                                        {{Session::get('lang') == 'th' ?  $tourdshow[0]->tour_pri_th :   ''}}
+                                        {{Session::get('lang') == 'en' ?  $tourdshow[0]->tour_pri_en :   ''}}
+                                        {{Session::get('lang') == 'cn' ?  $tourdshow[0]->tour_pri_cn :   ''}}
+
+                                    </span>
+                                </p>
                                 <div class="row bg-description">
                                     <div class="col-12 col-md-5 col-lg-5">
                                         <ul class="description">
-                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>{{Session::get('lang') == 'th' ? 'ประเทศ' :  'Country'}}<span>{{Session::get('lang') == 'th' ? $tourdshow[0]->country_name_th :  $tourdshow[0]->country_name_en}} </span></li>
-                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>{{Session::get('lang') == 'th' ? 'ระยะเวลา' :  'Time'}} : <span>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_time_th :  $tourdshow[0]->tour_time_en}}</span></li>
+                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                {{Session::get('lang') == 'th' ? 'ประเทศ' :  ''}} 
+                                                {{Session::get('lang') == 'en' ? 'Country' :  ''}} 
+                                                {{Session::get('lang') == 'cn' ? '國家' :  ''}} :
+                                                
+                                                <span>
+                                                    {{Session::get('lang') == 'th' ? $tourdshow[0]->country_name_th :   ''}}
+                                                    {{Session::get('lang') == 'en' ? $tourdshow[0]->country_name_en :   ''}}
+                                                    {{Session::get('lang') == 'cn' ? $tourdshow[0]->country_name_cn :   ''}}
+ 
+                                                </span>
+                                            </li>
+                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                {{Session::get('lang') == 'th' ? 'ระยะเวลา' :  ''}} 
+                                                {{Session::get('lang') == 'en' ? 'Time' :  ' '}} 
+                                                {{Session::get('lang') == 'cn' ? '時間' :  ''}} :
+
+                                                <span>
+                                                    {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_time_th :   ''}}
+                                                    {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_time_en :   ''}}
+                                                    {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_time_cn :   ''}}
+
+                                                </span>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-12 col-md-7 col-lg-7">
                                         <ul class="description">
-                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i> {{Session::get('lang') == 'th' ? 'สายการบิน' : 'Airline'}} : <span>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_airline_th :  $tourdshow[0]->tour_airline_en}}</span></li>
-                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i> {{Session::get('lang') == 'th' ? 'ช่วงเวลา' :  'Duration' }} : <span>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_duration_th :  $tourdshow[0]->tour_duration_en}} </span></li>
+                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                 {{Session::get('lang') == 'th' ? 'สายการบิน' : ''}} 
+                                                 {{Session::get('lang') == 'en' ? 'Airline' : ''}} 
+                                                 {{Session::get('lang') == 'cn' ? '航空公司' : ''}} : 
+
+                                                 <span>
+                                                     {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_airline_th :   ''}}
+                                                    {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_airline_en :   ''}}
+                                                    {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_airline_cn :   ''}}
+                                                    </span>
+                                            </li>
+                                            <li><i class="fa fa-angle-right" aria-hidden="true"></i> 
+                                                {{Session::get('lang') == 'th' ? 'ช่วงเวลา' :  '' }} 
+                                                {{Session::get('lang') == 'en' ? 'Duration' :  '' }}  
+                                                {{Session::get('lang') == 'cn' ? '持續時間' :  '' }} : 
+
+                                                <span>
+                                                    {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_duration_th :   ''}}
+                                                    {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_duration_en :   ''}}
+                                                    {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_duration_cn :   ''}}
+                                                </span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-7 col-lg-7">
                                         <ul class="description">
-                                            
-                                            <li>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_des_th :  $tourdshow[0]->tour_des_en}} </li>
+                                            <li>
+                                                {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_des_th :   ''}}
+                                                {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_des_en :   ''}}
+                                                {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_des_cn :   ''}}
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-12 col-md-5 col-lg-5" style="border-left: 1px solid #ebebeb;">
                                         <ul class="description">
-                                            <li>{{Session::get('lang') == 'th' ? 'ดาวน์โหลดไฟล์โปรแกรม' :  'Download file Program Tour' }} </li>
+                                            <li>
+                                                {{Session::get('lang') == 'th' ? 'ดาวน์โหลดไฟล์โปรแกรม' :  '' }} 
+                                                {{Session::get('lang') == 'en' ? 'Download file Program Tour' :   '' }} 
+                                                {{Session::get('lang') == 'cn' ? '下載文件程序導覽' :  '' }} 
+
+                                            </li>
                                             <a href="{{ asset('local/filesss/images/download-form.doc')}}" download="filename"><img src="{{asset('local/filesss/images/pdf.png')}}" class="img-fluid"></a>
                                         </ul>
 
@@ -178,39 +249,84 @@
                         </div>
                     </div>
                     <div class="itinerary">
-                        <h6>{{Session::get('lang') == 'th' ?  'กำหนดการเดินทาง / อัตราค่าบริการ' : 'Itinerary / Service Rate'}} </h6>
+                        <h6>
+                            {{Session::get('lang') == 'th' ?  'กำหนดการเดินทาง / อัตราค่าบริการ' : ''}} 
+                            {{Session::get('lang') == 'en' ?  'กำหนดการเดินทาง / อัตราค่าบริการ' : ''}} 
+                            {{Session::get('lang') == 'cn' ?  '行程 / 服務費率' : ''}} 
+
+                        </h6>
                     </div>
                     <div class="load-more-container">
                         <input type="checkbox" id="load-more" />
                         <ul>
                             <li style="background-color: #b58d42;">
-                                <h6>{{Session::get('lang') == 'th' ? 'วันเดินทางไป - กลับ' : 'Travel Date - Return Date'}} </h6>
+                                <h6>
+                                    {{Session::get('lang') == 'th' ? 'วันเดินทางไป - กลับ' : ''}} 
+                                    {{Session::get('lang') == 'en' ? 'Travel Date - Return Date' : ' '}} 
+                                    {{Session::get('lang') == 'cn' ? ' 旅行日期 - 退貨日期' : ''}} 
+
+                                </h6>
                             </li>
                             <li style="background-color: #b58d42;">
-                                <h6>{{Session::get('lang') == 'th' ? 'ราคา' : 'Price'}}</h6>
+                                <h6>
+                                    {{Session::get('lang') == 'th' ? 'ราคา' : ''}}
+                                    {{Session::get('lang') == 'en' ? 'Price' : ''}}
+                                    {{Session::get('lang') == 'cn' ? '價錢' : ''}}
+
+                                </h6>
                             </li>
                             @foreach ($tourdshow as $trdate)
                                 
                            
                             <li>
-                                <p>{{Session::get('lang') == 'th' ? $trdate->tr_date_th : $trdate->tr_date_en}}</p>
+                                <p>
+                                    {{Session::get('lang') == 'th' ? $trdate->tr_date_th : ''}}
+                                    {{Session::get('lang') == 'en' ? $trdate->tr_date_en : ''}}
+                                    {{Session::get('lang') == 'cn' ? $trdate->tr_date_cn : ''}}
+
+                                </p>
                             </li>
                             <li>
-                                <p>{{Session::get('lang') == 'th' ?  $trdate->tr_date_pri_th :   $trdate->tr_date_pri_en}} </p>
+                                <p>
+                                    {{Session::get('lang') == 'th' ?  $trdate->tr_date_pri_th :    ''}} 
+                                    {{Session::get('lang') == 'en' ?  $trdate->tr_date_pri_en :    ''}} 
+                                    {{Session::get('lang') == 'cn' ?  $trdate->tr_date_pri_cn :    ''}} 
+
+                                </p>
                             </li>
                             @endforeach
                         </ul>
                         <label class="load-more-btn" for="load-more">
-                        <span class="unloaded">{{Session::get('lang') == 'th' ? 'ดูเพิ่มเติม' : 'MORE'}} </span>
-                        <span class="loaded">{{Session::get('lang') == 'th' ? 'ข้างบน' : 'Top'}}</span>
+                        <span class="unloaded">
+                            {{Session::get('lang') == 'th' ? 'ดูเพิ่มเติม' : ''}} 
+                            {{Session::get('lang') == 'en' ? 'MORE' : ''}} 
+                            {{Session::get('lang') == 'cn' ? '更多' : ''}} 
+
+                        </span>
+                        <span class="loaded">
+                            {{Session::get('lang') == 'th' ? 'ข้างบน' : ''}}
+                            {{Session::get('lang') == 'en' ? 'Top' : ''}}
+                            {{Session::get('lang') == 'cn' ? '最佳' : ''}}
+
+                        </span>
                       </label>
                     </div>
                     <div id="exTab1">
                         <ul class="nav nav-pills">
                             <li class="active">
-                                <a href="#5a" data-toggle="tab">{{Session::get('lang') == 'th' ? 'รายละเอียดโปรแกรม' : 'Program Detail'}} </a>
+                                <a href="#5a" data-toggle="tab">
+                                    {{Session::get('lang') == 'th' ? 'รายละเอียดโปรแกรม' : ''}}
+                                    {{Session::get('lang') == 'en' ? 'Program Detail' : ''}}
+                                    {{Session::get('lang') == 'cn' ? '計劃細節' : ''}}
+
+                                 </a>
                             </li>
-                            <li><a href="#6a" data-toggle="tab">{{Session::get('lang') == 'th' ? 'เงื่อนไขโปรแกรม' : 'Term of Program'}}</a>
+                            <li><a href="#6a" data-toggle="tab">
+                                {{Session::get('lang') == 'th' ? 'เงื่อนไขโปรแกรม' : ''}}
+                                {{Session::get('lang') == 'en' ? 'Term of Program' : ''}}
+                                {{Session::get('lang') == 'cn' ? '計劃期限' : ''}}
+
+                            </a>
                             </li>
                         </ul>
                     </div>
@@ -219,7 +335,12 @@
                             <div class="description-1">
                                 <ul class="description-time">
                                    
-                                    <li>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_detail_th :  $tourdshow[0]->tour_detail_en}} </li>
+                                    <li>
+                                        {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_detail_th :   ''}} 
+                                        {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_detail_en :   ''}} 
+                                        {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_detail_cn :   ''}} 
+
+                                    </li>
                                     
                                 </ul>
                             </div>
@@ -227,7 +348,12 @@
                         <div class="tab-pane" id="6a">
                             <div class="description-1">
                                 <ul class="description-time">
-                                    <li>{{Session::get('lang') == 'th' ? $tourdshow[0]->tour_term_th :  $tourdshow[0]->tour_term_en}}  </li>
+                                    <li>
+                                        {{Session::get('lang') == 'th' ? $tourdshow[0]->tour_term_th :  ''}}  
+                                        {{Session::get('lang') == 'en' ? $tourdshow[0]->tour_term_en :  ''}}  
+                                        {{Session::get('lang') == 'cn' ? $tourdshow[0]->tour_term_cn :  ''}}  
+
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -252,42 +378,18 @@
                                 <div class="hovereffect">
                                     <img class="img-fluid" src="{{ asset('local/assets/images/tour/'.$item2->tour_img)}}" alt="">
                                     <div class="overlay">
-                                       <h2>{{Session::get('lang') == 'th' ? $item2->tour_name_th :  $item2->tour_name_en}} </h2>
+                                       <h2>
+                                           {{Session::get('lang') == 'th' ? $item2->tour_name_th :  ''}} 
+                                           {{Session::get('lang') == 'en' ? $item2->tour_name_en :  ''}} 
+                                           {{Session::get('lang') == 'cn' ? $item2->tour_name_cn :  ''}} 
+
+                                        </h2>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         @endforeach
-                        {{-- <div class="col-12 col-md-4 col-lg-4 col-xl-3 pad-read">
-                            <a href="readpackage_tour.php">
-                                <div class="hovereffect">
-                                    <img class="img-fluid" src="images/readpackag-2.jpg" alt="">
-                                    <div class="overlay">
-                                       <h2>OSAKA TAKAYAMA</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 pad-read">
-                            <a href="readpackage_tour.php">
-                                <div class="hovereffect">
-                                    <img class="img-fluid" src="images/readpackag-3.jpg" alt="">
-                                    <div class="overlay">
-                                       <h2>OSAKA TAKAYAMA</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 pad-read">
-                            <a href="readpackage_tour.php">
-                                <div class="hovereffect">
-                                    <img class="img-fluid" src="images/readpackag-4.jpg" alt="">
-                                    <div class="overlay">
-                                       <h2>OSAKA TAKAYAMA</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </div> --}}
+                         
                     </div>
                 </div>
 

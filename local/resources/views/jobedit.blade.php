@@ -25,28 +25,37 @@
                         <input type="hidden" name="id" value="{{$jobEdit[0]->career_id}}">
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> ภาษาไทย</label>
                             </div>
-                            <div class="col-sm-6">
-                                <label> Englist</label>
+                            <div class="col-sm-4">
+                                <label> English</label>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> China</label>
+                                </div>
+    
                         </div>
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> ตำแหน่ง :</label>
                                 <input type="text" class="form-control" name="position_th" 
                                 value="{{$jobEdit[0]->position_th}}"
                                     autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Position :</label>
                                 <input type="text" class="form-control" name="position_en" 
                                 value="{{$jobEdit[0]->position_en}}"
                                     autocomplete="off">
                             </div>
+                            <div class="col-sm-4">
+                                    <label> Position :</label>
+                                    <input type="text" class="form-control" name="position_cn" 
+                                    value="{{$jobEdit[0]->position_cn}}"
+                                        autocomplete="off">
+                                </div>
                         </div>
                         
                         <div class="form-group row col-12">
@@ -57,6 +66,7 @@
                                         <tr>
                                             <th class="text-center">ภาษาไทย</th>
                                             <th class="text-center">English</th>
+                                            <th class="text-center">China</th>
                                             <th class="text-center" style="width:5%">
                                                 <button type="button" class="btn btn-primary"
                                                     onclick="addexperitise()"><i class="fa fa-plus"></i></button>
@@ -77,7 +87,9 @@
                                                            
                                                             <td><input type="text" value="{{$item1->duty_th}}" class="form-control" name="duty_th[]"></td>
                                                             <td><input type="text" value="{{$item1->duty_en}}" class="form-control" name="duty_en[]"></td>
-                                                        <td class="text-center"><a href="javascript:;" id="{{$item1->duty_id}}" onclick="delduty({{$item1->duty_id}})"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>
+                                                            <td><input type="text" value="{{$item1->duty_cn}}" class="form-control" name="duty_cn[]"></td>
+
+                                                            <td class="text-center"><a href="javascript:;" id="{{$item1->duty_id}}" onclick="delduty({{$item1->duty_id}})"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>
                                                         </tr>
                                                 @endforeach
                                            @endif
@@ -92,10 +104,12 @@
                                     <table class="table table-bordered" id="prop">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">คุณสมบัติภาษาไทย</th>
-                                                <th class="text-center">รายละเอียดภาษาไทย</th>
-                                                <th class="text-center">Requirement English</th>
-                                                <th class="text-center">Detail English</th>
+                                                    <th class="text-center">คุณสมบัติ </th>
+                                                    <th class="text-center">รายละเอียด </th>
+                                                    <th class="text-center">Requirement  </th>
+                                                    <th class="text-center">Detail  </th>
+                                                    <th class="text-center">Requirement cn</th>
+                                                    <th class="text-center">Detail cn</th>
                                                 <th class="text-center" style="width:5%">
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="addexperitise2()"><i class="fa fa-plus"></i></button>
@@ -118,6 +132,8 @@
                                                                 <td><input type="text" value="{{$item2->property_detail_th}}" class="form-control" name="property_detail_th[]"></td>
                                                                 <td><input type="text" value="{{$item2->property_name_en}}" class="form-control" name="property_name_en[]"></td>
                                                                 <td><input type="text" value="{{$item2->property_detail_en}}" class="form-control" name="property_detail_en[]"></td>
+                                                                <td><input type="text" value="{{$item2->property_name_cn}}" class="form-control" name="property_name_cn[]"></td>
+                                                                <td><input type="text" value="{{$item2->property_detail_cn}}" class="form-control" name="property_detail_cn[]"></td>
                                                                 <td class="text-center"><a href="javascript:;" id="{{ $item2->property_id }}" onclick="del({{$item2->property_id}})"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>
                                                             </tr>
                                                      @endforeach
@@ -279,6 +295,8 @@
         row += '<tr id="rowb'+newcount+'">';
         row += '<td><input type="text" class="form-control" name="duty_th[]"></td>';
         row += '<td><input type="text" class="form-control" name="duty_en[]"></td>';
+        row += '<td><input type="text" class="form-control" name="duty_cn[]"></td>';
+
         row+='<td class="text-center"><a href="javascript:;" onclick="delexperitise('+newcount+')"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>';
         row += '</tr>';
         
@@ -300,6 +318,8 @@
         row += '<td><input type="text" class="form-control" name="property_detail_th[]"></td>';
         row += '<td><input type="text" class="form-control" name="property_name_en[]"></td>';
         row += '<td><input type="text" class="form-control" name="property_detail_en[]"></td>';
+        row += '<td><input type="text" class="form-control" name="property_name_cn[]"></td>';
+        row += '<td><input type="text" class="form-control" name="property_detail_cn[]"></td>';
         row+='<td class="text-center"><a href="javascript:;"  onclick="delexperitise2('+newcount+')"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>';
         row += '</tr>';
         

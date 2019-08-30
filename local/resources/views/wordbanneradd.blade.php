@@ -50,73 +50,93 @@
                         <input type="hidden" name="id">
 
                         <div class="form-group row col-12">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <h1>ภาษาไทย</h1>
                           
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <h1>English</h1>
                                     
                                 </div>
-    
+                                <div class="col-sm-4">
+                                        <h1>China</h1>
+                                        
+                                    </div>
     
                             </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่ </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th"
                                     required></textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่ </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en"
                                     required></textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> หัวข้อตัวใหญ่ </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn"
+                                        required></textarea>
+                                </div>
 
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่สีทอง </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th1"
                                     required></textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่สีทอง </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en1"
                                     required></textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> หัวข้อตัวใหญ่สีทอง </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn1"
+                                        required></textarea>
+                                </div>
 
                         </div>
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 1</label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th2"
                                     required></textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 1 </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en2"
                                     required></textarea>
                             </div>
+                            <div class="col-sm-4">
+                                    <label> รายละเอียด บรรทัด 1 </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn2"
+                                        required></textarea>
+                                </div>
 
 
                         </div>
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 2 </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th3"
                                     required></textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 2 </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en3"
                                     required></textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> รายละเอียด บรรทัด 2 </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn3"
+                                        required></textarea>
+                                </div>
 
                         </div>
                         <div class="form-group">

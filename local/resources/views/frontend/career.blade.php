@@ -30,7 +30,11 @@
                         <div class="col-12">
                             <div class="applying_career">
                                 <h6>Applying for a job Scoot Travel Company Limited</h6>
-                                <h5 style="color: #ff0000;">{{Session::get('lang') == 'th' ? 'ตำแหน่งงาน ว่าง!' : 'Job Vacancy'}} </h5>
+                                <h5 style="color: #ff0000;">
+                                    {{Session::get('lang') == 'th' ? 'ตำแหน่งงาน ว่าง!' : ' '}} 
+                                    {{Session::get('lang') == 'en' ? 'Job Vacancy' : ''}}
+                                    {{Session::get('lang') == 'cn' ? ' 職位空缺' : '  '}}                            
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -38,7 +42,12 @@
                         <div class="col-md-1 col-lg-1"></div>
                         <div class="col-12 col-md-10 col-lg-10">
                             <div class="panel_title_download">
-                                <h4>{{Session::get('lang') == 'th' ? 'ตำแหน่งงานว่าง' : 'Job Vacancy'}} </h4>
+                                <h4>
+                                    {{Session::get('lang') == 'th' ? 'ตำแหน่งงาน ว่าง!' : ' '}} 
+                                    {{Session::get('lang') == 'en' ? 'Job Vacancy' : ''}}
+                                    {{Session::get('lang') == 'cn' ? ' 職位空缺' : '  '}}  
+
+                                </h4>
                                
                                 <div class="wrapper center-block">
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -49,7 +58,10 @@
                                                       
 
                                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{$r->career_id}}" aria-expanded="true" aria-controls="collapseOne">
-                                                            {{Session::get('lang') == 'th' ? $r->position_th : $r->position_en}}  
+                                                            {{Session::get('lang') == 'th' ? $r->position_th : ''}}  
+                                                            {{Session::get('lang') == 'en' ? $r->position_en : ''}}  
+                                                            {{Session::get('lang') == 'cn' ? $r->position_cn : ''}}  
+
                                         </a>
                                         <input type="hidden" name="id" value="{{$r->career_id}}">
                                                 </h4>
@@ -60,7 +72,12 @@
                                                     <div class="row">
                                                         <div class="col-12 col-md-7 col-lg-7">
                                                             <div class="text_download">
-                                                                <h5>{{Session::get('lang') == 'th' ? 'หน้าที่และความรับผิดชอบ' : 'Responsibilities'}} </h5>
+                                                                <h5>
+                                                                    {{Session::get('lang') == 'th' ? 'หน้าที่และความรับผิดชอบ' : ''}} 
+                                                                    {{Session::get('lang') == 'en' ? 'Responsibilities' : ''}} 
+                                                                    {{Session::get('lang') == 'cn' ? '責任' : ''}} 
+
+                                                                </h5>
                                                                 <ul class="ul_text_download">
                                                                     @php
                                                                     $duty = DB::table('duty')->where('career_duty_id', $r->career_id)->get();   
@@ -68,19 +85,34 @@
                                                                     @foreach ($duty as $r2)
                                                                         
                                                                     
-                                                                <li><i class="fa fa-caret-right" aria-hidden="true"></i> {{Session::get('lang') == 'th' ? $r2->duty_th : $r2->duty_en }}   </li>
+                                                                <li><i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                                     {{Session::get('lang') == 'th' ? $r2->duty_th : ''}} 
+                                                                     {{Session::get('lang') == 'en' ? $r2->duty_en : ''}} 
+                                                                     {{Session::get('lang') == 'cn' ? $r2->duty_cn : '' }} 
+
+                                                                    </li>
                                                     
                                                                     @endforeach
                                                                 </ul>
                                                                 
-                                                                <h5>{{Session::get('lang') == 'th' ? 'คุณสมบัติพื้นฐาน' :  'Requirements'}}  </h5>
+                                                                <h5>
+                                                                    {{Session::get('lang') == 'th' ? 'คุณสมบัติพื้นฐาน' :  ''}} 
+                                                                    {{Session::get('lang') == 'en' ? 'Requirements' :  ''}} 
+                                                                    {{Session::get('lang') == 'cn' ? '要求' :  ''}} 
+
+                                                                </h5>
                                                                 <ul class="ul_text_download">
                                                                         @php
                                                                         $property = DB::table('property')->where('property_career_id', $r->career_id)->get();   
                                                                         @endphp
                                                                          @foreach ($property as $r3)
-                                                                <li><i class="fa fa-caret-right" aria-hidden="true"></i> {{Session::get('lang') == 'th' ? $r3->property_name_th.' : '.$r3->property_detail_th : $r3->property_name_en.' : '.$r3->property_detail_en }}</li>
-                                                                        @endforeach
+                                                                <li><i class="fa fa-caret-right" aria-hidden="true"> </i>
+                                                                    {{Session::get('lang') == 'th' ? $r3->property_name_th.' : '.$r3->property_detail_th : '' }} 
+                                                                    {{Session::get('lang') == 'en' ? $r3->property_name_en.' : '.$r3->property_detail_en :  '' }} 
+                                                                    {{Session::get('lang') == 'cn' ? $r3->property_name_cn.' : '.$r3->property_detail_cn :  '' }}
+                                                            </li>
+                                                                     
+                                                                     @endforeach
 
                                                                 </ul>
                                                             </div>
@@ -88,13 +120,23 @@
                                                         <div class="col-5 col-md-2 col-lg-2">
                                                             <div class="applying">
                                                                 <a href="" data-toggle="modal" data-target="#m1">
-                                                                    <i class="fa fa-file" aria-hidden="true" ></i>{{Session::get('lang') == 'th' ? 'สมัครงาน' :  'APPLY'}} 
+                                                                    <i class="fa fa-file" aria-hidden="true" ></i>
+                                                                    
+                                                                    {{Session::get('lang') == 'th' ? 'สมัครงาน' :  ''}} 
+                                                                    {{Session::get('lang') == 'en' ? 'APPLY' :  ''}} 
+                                                                    {{Session::get('lang') == 'cn' ? '應用' :  ''}} 
+
                                                                 </a>
                                                             </div>
                                                         </div>
                                                         <div class="col-7 col-md-3 col-lg-3">
                                                             <div class="download-form">
-                                                                <a href="{{ asset('local/filesss/images/download-form.doc')}}" download="filename"> <i class="fa fa-download" aria-hidden="true"></i> {{Session::get('lang') == 'th' ? 'ดาวน์โหลดฟอร์ม' :  'Download Form'}} </a>
+                                                                <a href="{{ asset('local/filesss/images/download-form.doc')}}" download="filename"> <i class="fa fa-download" aria-hidden="true"></i> 
+                                                                    {{Session::get('lang') == 'th' ? 'ดาวน์โหลดฟอร์ม' :  ''}}
+                                                                    {{Session::get('lang') == 'en' ? 'Download Form' :  ''}}
+                                                                    {{Session::get('lang') == 'cn' ? '下載表格' :  ''}}
+
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -103,204 +145,7 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                        {{-- <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        เลขานุการ
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-7 col-lg-7">
-                                                            <div class="text_download">
-                                                                <h5>หน้าที่และความรับผิดชอบ</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                                <h5>คุณสมบัติพื้นฐาน</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -  </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-5 col-md-2 col-lg-2">
-                                                            <div class="applying">
-                                                                <a href="" data-toggle="modal" data-target="#m1">
-                                                                    <i class="fa fa-file" aria-hidden="true" ></i> สมัครงาน
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7 col-md-3 col-lg-3">
-                                                            <div class="download-form">
-                                                                <a href="images/download-form.doc" download="filename"> <i class="fa fa-download" aria-hidden="true"></i> ดาวน์โหลดฟอร์ม</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                        {{-- <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        ผู้ช่วยผู้จัดการแผนกบัญชี
-                                        </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-7 col-lg-7">
-                                                            <div class="text_download">
-                                                                <h5>หน้าที่และความรับผิดชอบ</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                                <h5>คุณสมบัติพื้นฐาน</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -  </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-5 col-md-2 col-lg-2">
-                                                            <div class="applying">
-                                                                <a href="" data-toggle="modal" data-target="#m1">
-                                                                    <i class="fa fa-file" aria-hidden="true" ></i> สมัครงาน
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7 col-md-3 col-lg-3">
-                                                            <div class="download-form">
-                                                                <a href="{{ asset('local/filesss/images/download-form.doc')}}" download="filename"> <i class="fa fa-download" aria-hidden="true"></i> ดาวน์โหลดฟอร์ม</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-
-                                        {{-- <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        นักศึกษาฝึกงาน (IT,บัญชี,ธุรการ)
-                                        </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-7 col-lg-7">
-                                                            <div class="text_download">
-                                                                <h5>หน้าที่และความรับผิดชอบ</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                                <h5>คุณสมบัติพื้นฐาน</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -  </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-5 col-md-2 col-lg-2">
-                                                            <div class="applying">
-                                                                <a href="" data-toggle="modal" data-target="#m1">
-                                                                    <i class="fa fa-file" aria-hidden="true" ></i> สมัครงาน
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7 col-md-3 col-lg-3">
-                                                            <div class="download-form">
-                                                                <a href="{{ asset('local/filesss/images/download-form.doc')}}" download="filename"> <i class="fa fa-download" aria-hidden="true"></i> ดาวน์โหลดฟอร์ม</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-
-                                        {{-- <div class="panel panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFive">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                       Customer Service
-                                        </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-7 col-lg-7">
-                                                            <div class="text_download">
-                                                                <h5>หน้าที่และความรับผิดชอบ</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                                <h5>คุณสมบัติพื้นฐาน</h5>
-                                                                <ul class="ul_text_download">
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -</li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> -  </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> - </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-5 col-md-2 col-lg-2">
-                                                            <div class="applying">
-                                                                <a href="" data-toggle="modal" data-target="#m1">
-                                                                    <i class="fa fa-file" aria-hidden="true" ></i> สมัครงาน
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7 col-md-3 col-lg-3">
-                                                            <div class="download-form">
-                                                                <a href="{{asset('local/filesss/images/download-form.doc')}}" download="filename"> <i class="fa fa-download" aria-hidden="true"></i> ดาวน์โหลดฟอร์ม</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
+                                        
                                      
                                     </div>
                                  

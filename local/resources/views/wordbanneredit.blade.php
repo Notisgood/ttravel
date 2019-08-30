@@ -51,73 +51,93 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{$bannerwordsedit->bannerword_id}}">
                         <div class="form-group row col-12">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <h1>ภาษาไทย</h1>
                           
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <h1>English</h1>
                                     
                                 </div>
-    
+                                <div class="col-sm-4">
+                                        <h1>China</h1>
+                                        
+                                    </div>
     
                             </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่ </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th"
                                     required>{{$bannerwordsedit->bannerword_th}}</textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่ </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en"
                                     required>{{$bannerwordsedit->bannerword_en}}</textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> หัวข้อตัวใหญ่ </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn"
+                                        required>{{$bannerwordsedit->bannerword_cn}}</textarea>
+                                </div>
 
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่สีทอง </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th1"
                                     required>{{$bannerwordsedit->bannerword_th1}}</textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> หัวข้อตัวใหญ่สีทอง </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en1"
                                     required>{{$bannerwordsedit->bannerword_en1}}</textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> หัวข้อตัวใหญ่สีทอง </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn1"
+                                        required>{{$bannerwordsedit->bannerword_cn1}}</textarea>
+                                </div>
 
                         </div>
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 1</label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th2"
                                     required>{{$bannerwordsedit->bannerword_th2}}</textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 1 </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en2"
                                     required>{{$bannerwordsedit->bannerword_en2}}</textarea>
                             </div>
 
-
+                            <div class="col-sm-4">
+                                    <label> รายละเอียด บรรทัด 1 </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn2"
+                                        required>{{$bannerwordsedit->bannerword_cn2}}</textarea>
+                                </div>
                         </div>
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 2 </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_th3"
                                     required>{{$bannerwordsedit->bannerword_th3}}</textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียด บรรทัด 2 </label>
                                 <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_en3"
                                     required>{{$bannerwordsedit->bannerword_en3}}</textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> รายละเอียด บรรทัด 2 </label>
+                                    <textarea rows="5" cols="5" class="form-control" value="" name="bannerword_cn3"
+                                        required>{{$bannerwordsedit->bannerword_cn3}}</textarea>
+                                </div>
+    
 
                         </div>
                         <div class="form-group">

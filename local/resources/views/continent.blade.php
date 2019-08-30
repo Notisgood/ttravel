@@ -29,8 +29,7 @@
                     <th class="text-center">ลำดับ</th>
                     <th class="text-center">ทวีป</th>
                     <th class="text-center">continent</th>
-                    <th class="text-center">รายละเอียด</th>
-                    <th class="text-center">detail</th>
+                    <th class="text-center">continent cn</th>
                     <th  >#</th>
                 </tr>
             </thead>
@@ -40,8 +39,10 @@
                     <td class="text-center">{{  $key+1 }}</td>
                     <td class="text-center">{{ $r->continent_name_th }}</td>
                     <td class="text-center">{{ $r->continent_name_en }}</td>
-                    <td class="text-center">{{ $r->continent_name_des_th }}</td>
-                    <td class="text-center">{{ $r->continent_name_des_en }}</td>
+                    <td class="text-center">{{ $r->continent_name_cn }}</td>
+
+                    {{-- <td class="text-center">{{ $r->continent_name_des_th }}</td>
+                    <td class="text-center">{{ $r->continent_name_des_en }}</td> --}}
 
 
                     <td class=" icon-btn">
@@ -73,28 +74,42 @@
                 <div class="card-block">
                     <form name="myfrom" method="post" action="{{ route('addcont')}}">
                         {{ csrf_field() }}
-                        <div class="form-group row">
+                        <div class="form-group row ">
                             <label class="col-sm-2 col-form-label text-center text-middle">ทวีป</label>
-                            <div class="col-sm-4">
+                            <div class="col-sm">
                                 <input type="text" class="form-control" name="continent_name_th" required
-                                    autocomplete="off">
+                                    autocomplete="off"  >
                             </div>
-                            <label class="col-sm-2 col-form-label text-center text-middle">continent</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="continent_name_en" required
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center text-middle">รายละเอียด</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="continent_name_des_th" 
-                                    autocomplete="off">
-                            </div><label class="col-sm-2 col-form-label text-center text-middle">detail</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="continent_name_des_en" 
-                                    autocomplete="off">
+                                    autocomplete="off"  >
                             </div>
+                        </div>
+                        <div class="form-group row ">
+
+                            <label class="col-sm-2 col-form-label text-center text-middle">continent</label>
+                            <div class="col-sm">
+                                <input type="text" class="form-control" name="continent_name_en" required
+                                    autocomplete="off"  >
+                            </div>
+                         <label class="col-sm-2 col-form-label text-center text-middle">detail</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="continent_name_des_en" 
+                                autocomplete="off" >
+                        </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label class="col-sm-2 col-form-label text-center text-middle">continent cn</label>
+                            <div class="col-sm">
+                                <input type="text" class="form-control" name="continent_name_cn" required
+                                    autocomplete="off"  >
+                            </div>
+                        <label class="col-sm-2 col-form-label text-center text-middle">detail cn</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="continent_name_des_cn" 
+                                autocomplete="off">
+                        </div>
                         </div>
                 </div>
             </div>
@@ -123,7 +138,7 @@
                     <form name="myfrom" method="post" action="{{ route('contupdate')}}">
                         {{ csrf_field() }}
                         <input type="hidden" value="{{$r->continent_id}}" name="id">
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center text-middle">ทวีป</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="continent_name_th"
@@ -145,7 +160,46 @@
                                 <input type="text" class="form-control" name="continent_name_des_en"
                                     value="{{$r->continent_name_des_en}}" required autocomplete="off">
                             </div>
-                        </div>
+                        </div> --}}
+
+
+                        <div class="form-group row ">
+                                <label class="col-sm-2 col-form-label text-center text-middle">ทวีป</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="continent_name_th" required
+                                       value="{{$r->continent_name_th}}" autocomplete="off">
+                                </div>
+                                <label class="col-sm-2 col-form-label text-center text-middle">รายละเอียด</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="continent_name_des_th" 
+                                    value="{{$r->continent_name_des_th}}"  autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+    
+                                <label class="col-sm-2 col-form-label text-center text-middle">Continent</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="continent_name_en" required
+                                    value="{{$r->continent_name_en}}"   autocomplete="off">
+                                </div>
+                             <label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="continent_name_des_en" 
+                                value="{{$r->continent_name_des_en}}"  autocomplete="off">
+                            </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="col-sm-2 col-form-label text-center text-middle">Continent cn</label>
+                                <div class="col-sm">
+                                    <input type="text" class="form-control" name="continent_name_cn" required
+                                    value="{{$r->continent_name_cn}}"  autocomplete="off">
+                                </div>
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail cn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="continent_name_des_cn" 
+                                value="{{$r->continent_name_des_cn}}"  autocomplete="off">
+                            </div>
+                            </div>
                 </div>
             </div>
             <div class="modal-footer">

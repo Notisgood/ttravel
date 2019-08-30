@@ -29,7 +29,7 @@
                             <th class="text-center">รูป</th>
                             <th  class="text-center" >Banner ไทย</th>
                             <th  class="text-center">Banner English</th>
-                           
+                            <th  class="text-center">Banner China</th>
                             <th  class="text-center">#</th>
                         </tr>
                     </thead>
@@ -50,7 +50,8 @@
                                 <img src="{{asset('local/assets/images/banner')}}/{{$r->bannerword_img}}" width="50%" >    
                                 </td>
                     <td style="white-space:pre-wrap; word-wrap:break-word">{{ $r->bannerword_th }}</td>
-                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ $r->bannerword_en }}</td>       
+                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ $r->bannerword_en }}</td> 
+                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ $r->bannerword_cn }}</td>             
                             <td class="icon-btn">
                                     <a href="{{ url('wordbanneredit/'.$r->bannerword_id)}}" class="btn btn-warning btn-sm waves-effect waves-light"><i class="fa fa-pencil  "></i></a>                            
 

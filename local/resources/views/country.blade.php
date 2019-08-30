@@ -30,8 +30,7 @@
                     <th>ทวีป / Continent</th>
                     <th>ประเทศ</th>
                     <th>Country</th>
-                    <th>รายละเอียด</th>
-                    <th>detail</th>
+                    <th>Country cn</th>
                     <th>#</th>
                 </tr>
             </thead>
@@ -42,8 +41,7 @@
                 <td>{{ $r->continent_name_th }} / {{ $r->continent_name_en}}</td>
                     <td>{{ $r->country_name_th }}</td>
                     <td>{{ $r->country_name_en }}</td>
-                    <td>{{ $r->country_des_th }}</td>
-                    <td>{{ $r->country_des_en }}</td>
+                    <td>{{ $r->country_name_cn }}</td>
 
                     <td class=" icon-btn">
 
@@ -82,7 +80,7 @@
                                 <option value="">---- กรุณาเลือก ----</option>
                                 @foreach($cont_all as $key => $r)
                                 <option value="{{ $r->continent_id }}">
-                                    {{ $r->continent_name_th.' :: '.$r->continent_name_en  }}
+                                    {{ $r->continent_name_th.' :: '.$r->continent_name_en.' :: '.$r->continent_name_cn  }}
                                 </option>
                                 @endforeach
                                 </select>
@@ -91,24 +89,41 @@
                             <label class="col-sm-2 col-form-label text-center text-middle">ประเทศ</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="country_name_th" required
-                                    autocomplete="off">
+                                    autocomplete="off" required>
                             </div>
-                            <label class="col-sm-2 col-form-label text-center text-middle">Country</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="country_name_en" required
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center text-middle">รายละเอียด</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="country_des_th" 
                                     autocomplete="off">
-                            </div><label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">Country</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="country_name_en" required
+                                        autocomplete="off" required>
+                                </div>
+                           
+                             <label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="country_des_en"  
                                     autocomplete="off">
                             </div>
+
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">Country cn</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="country_name_cn" required
+                                        autocomplete="off" required>
+                                </div>
+                           
+                             <label class="col-sm-2 col-form-label text-center text-middle">Detail cn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="country_des_cn"  
+                                    autocomplete="off">
+                            </div>
+
                         </div>
                 </div>
             </div>
@@ -146,7 +161,7 @@
                                 <option>---- กรุณาเลือก ----</option>
                                @foreach($cont_all as $key => $r2)
                                 <option value="{{ $r2->continent_id }}">
-                                    {{ $r2->continent_name_th.' :: '.$r2->continent_name_en  }}
+                                    {{ $r2->continent_name_th.' :: '.$r2->continent_name_en.' :: '.$r->continent_name_cn  }}
                                 </option>
                                 @endforeach
                                 </select>
@@ -157,21 +172,36 @@
                                 <input type="text" class="form-control" name="country_name_th" required
                                     value="{{$r->country_name_th}}" required autocomplete="off">
                             </div>
-                            <label class="col-sm-2 col-form-label text-center text-middle">Country</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" name="country_name_en" required
-                                    value="{{$r->country_name_en}}" required autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-center text-middle">รายละเอียด</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="country_des_th"
-                                    value="{{$r->country_des_th}}" required autocomplete="off">
-                            </div><label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
+                                    value="{{$r->country_des_th}}"   autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">Country</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="country_name_en" required
+                                        value="{{$r->country_name_en}}" required autocomplete="off">
+                                </div>
+                           
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" name="country_des_en"
-                                    value="{{$r->country_des_en}}" required autocomplete="off">
+                                    value="{{$r->country_des_en}}"   autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-center text-middle">Country cn</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="country_name_cn" required
+                                        value="{{$r->country_name_cn}}" required autocomplete="off">
+                                </div>
+                           
+                            <label class="col-sm-2 col-form-label text-center text-middle">Detail cn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="country_des_cn"
+                                    value="{{$r->country_des_cn}}"   autocomplete="off">
                             </div>
                         </div>
                 </div>

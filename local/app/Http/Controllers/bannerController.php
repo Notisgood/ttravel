@@ -102,6 +102,10 @@ class BannerController extends Controller
             'bannerword_en2' => $request->input('bannerword_en2'),
             'bannerword_th3' => $request->input('bannerword_th3'),
             'bannerword_en3' => $request->input('bannerword_en3'),
+            'bannerword_cn' => $request->input('bannerword_cn'),
+            'bannerword_cn1' => $request->input('bannerword_cn1'),
+            'bannerword_cn2' => $request->input('bannerword_cn2'),
+            'bannerword_cn3' => $request->input('bannerword_cn3'),
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         );
@@ -154,6 +158,10 @@ class BannerController extends Controller
             'bannerword_en2' => $request->input('bannerword_en2'),
             'bannerword_th3' => $request->input('bannerword_th3'),
             'bannerword_en3' => $request->input('bannerword_en3'),
+            'bannerword_cn' => $request->input('bannerword_cn'),
+            'bannerword_cn1' => $request->input('bannerword_cn1'),
+            'bannerword_cn2' => $request->input('bannerword_cn2'),
+            'bannerword_cn3' => $request->input('bannerword_cn3'),
             'updated_at' => new DateTime,
         );
         DB::table('bannerword')->where('bannerword_id', $request->input('id'))->update($data);

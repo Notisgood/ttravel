@@ -334,6 +334,9 @@ font-family: 'Caveat Brush', cursive;
                                                 <img src="{{ asset('local/filesss/images/flag_th.jpg')}}"><a href="{{url('/th')}}"> Th
                                                 </a>
                                         </button>
+                                        <button class="dropdown-item" type="button">
+                                            <img src="{{ asset('local/filesss/images/flag_en.jpg')}}">  <a href="{{url('/cn')}}" >Cn
+                                            </a></button>     
                                 </div> 
                                 </div>  
                                 @elseif(Session::get('lang') == 'th')
@@ -343,12 +346,34 @@ font-family: 'Caveat Brush', cursive;
                                                 <img src="{{ asset('local/filesss/images/flag_th.jpg')}}"><a href="{{url('/th')}}"> Th
                                                 </a> </button>     
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2" x-placement="bottom-start">
-                                               
+                                                <button class="dropdown-item" type="button">
+                                                        <img src="{{ asset('local/filesss/images/flag_en.jpg')}}">  <a href="{{url('/cn')}}" >Cn
+                                                        </a></button>   
                                                 <button class="dropdown-item" type="button">
                                                                 <img src="{{ asset('local/filesss/images/flag_en.jpg')}}">  <a href="{{url('/en')}}" >En
-                                                                </a></button>      
+                                                                </a></button>  
+                                                                
+                                                                  
                                        </div> 
-                                    </div>  
+                                    </div>
+                                @elseif(Session::get('lang') == 'cn')
+                                <div class="dropdown">
+                                
+                                    <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="{{ asset('local/filesss/images/flag_en.jpg')}}">  <a href="{{url('/cn')}}" >Cn
+                                            </a> </button>     
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2" x-placement="bottom-start">
+                                           
+                                            <button class="dropdown-item" type="button">
+                                                            <img src="{{ asset('local/filesss/images/flag_en.jpg')}}">  <a href="{{url('/en')}}" >En
+                                                            </a></button> 
+                                                            <button class="dropdown-item" type="button">
+                                                                <img src="{{ asset('local/filesss/images/flag_th.jpg')}}"><a href="{{url('/th')}}"> Th
+                                                                </a>
+                                                        </button>     
+                                   </div> 
+                                </div>
+                                
                                 @endif
                                
                         
@@ -368,7 +393,12 @@ font-family: 'Caveat Brush', cursive;
                                     <a href="{{ url('exclusive_tour')}}">
                                           <img src="{{ asset('local/filesss/images/package_tour.jpg')}}" alt="Avatar" class="button-product-image" style="width: 100%;">
                                           <div class="button-product-overlay">
-                                            <div class="button-product-text">{{Session::get('lang') == 'th' ? 'ทัวร์พิเศษ' :  'Exclusive Tour'}} <i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                                            <div class="button-product-text">
+                                                {{Session::get('lang') == 'th' ? 'ทัวร์พิเศษ' :  ' '}}
+                                                {{Session::get('lang') == 'en' ? 'Exclusive Tour' :  ' '}}
+                                                {{Session::get('lang') == 'cn' ? '獨家旅遊' :  ' '}}
+
+                                                 <i class="fa fa-chevron-right" aria-hidden="true"></i></div>
                                           </div>
                                       </a>
                                 </div>
@@ -380,7 +410,12 @@ font-family: 'Caveat Brush', cursive;
                                     <a href="{{ url('ticket')}}">
                                           <img src="{{asset('local/filesss/images/ticket.jpg')}}" alt="Avatar" class="button-product-image" style="width: 100%;">
                                           <div class="button-product-overlay">
-                                            <div class="button-product-text">{{Session::get('lang') == 'th' ? 'ตั๋วเดินทาง' :  'Ticket'  }} <i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                                            <div class="button-product-text">
+                                                {{Session::get('lang') == 'th' ? 'ตั๋วเดินทาง' :  ' '  }} 
+                                                {{Session::get('lang') == 'en' ? 'Ticket' :  ' '  }} 
+                                                {{Session::get('lang') == 'cn' ? '票' :  ' '  }} 
+
+                                                <i class="fa fa-chevron-right" aria-hidden="true"></i></div>
                                           </div>
                                       </a>
                                 </div>
@@ -396,10 +431,27 @@ font-family: 'Caveat Brush', cursive;
                             <li style="background-image: url(local/assets/images/banner/{{ $r->bannerword_img }}">
                                     <div class="wrap_slidecaption">
                                         <div class="slidecaption slideleft">
-                                            <h1>{{Session::get('lang') == 'th' ? $r->bannerword_th : $r->bannerword_en}} <span>{{Session::get('lang') == 'th' ? $r->bannerword_th1 : $r->bannerword_en1}}</span></h1>
+                                            <h1>
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_th : '' }} 
+                                                {{Session::get('lang') == 'en' ? $r->bannerword_en : '' }} 
+                                                {{Session::get('lang') == 'cn' ? $r->bannerword_cn  : '' }}
+                                                <span>
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_th1 :  ''}}
+                                                {{Session::get('lang') == 'en' ? $r->bannerword_en1 :  ''}}
+                                                {{Session::get('lang') == 'cn' ? $r->bannerword_cn1 :  ''}}
+                                                </span>
+                                            </h1>
                                         </div>
                                         <div class="slidecaption slideright">
-                                            <h2> {{Session::get('lang') == 'th' ? $r->bannerword_th2 : $r->bannerword_en2}} <br>{{Session::get('lang') == 'th' ? $r->bannerword_th3 : $r->bannerword_en3}}
+                                            <h2> 
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_th2 :  ''}} 
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_en2 :  ''}} 
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_cn2 :  ''}} 
+                                                <br>
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_th3 :  ''}}
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_en3 :  ''}}
+                                                {{Session::get('lang') == 'th' ? $r->bannerword_cn3 :  ''}}
+
                                             </h2>
                                         </div>
                                     </div>

@@ -52,51 +52,64 @@
                         <input type="hidden" name="id">
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <h5> ภาษาไทย</h5>
                             </div>
-                            <div class="col-sm-6">
-                                <h5> Englist</h5>
+                            <div class="col-sm-4">
+                                <h5> English</h5>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <h5> China</h5>
+                                </div>
                         </div>
                         
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> ตั๋ว :</label>
                                 <input type="text" class="form-control" name="ticket_name_th" 
                                     autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Ticket :</label>
                                 <input type="text" class="form-control" name="ticket_name_en" 
                                     autocomplete="off">
                             </div>
+                            <div class="col-sm-4">
+                                    <label> Ticket :</label>
+                                    <input type="text" class="form-control" name="ticket_name_cn" 
+                                        autocomplete="off">
+                                </div>
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <h5> รายละเอียด</h5>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <h5> Detail</h5>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <h5> Detail</h5>
+                                </div>
                         </div>
                     
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> ราคา :</label>
                                 <input type="text" class="form-control" name="ticket_pri_th" 
                                     autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Price :</label>
                                 <input type="text" class="form-control" name="ticket_pri_en" 
                                     autocomplete="off">
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> Price :</label>
+                                    <input type="text" class="form-control" name="ticket_pri_cn" 
+                                        autocomplete="off">
+                                </div>
                         </div>
                         <div class="form-group row col-12">
                                 <div class="col-sm">
@@ -106,6 +119,8 @@
                                             <tr>
                                                 <th class="text-center">รายละเอียดตั๋ว</th>
                                                 <th class="text-center">Ticket Detail</th>
+                                                <th class="text-center">Ticket Detail cn</th>
+
                                                 <th class="text-center" style="width:5%">
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="addexperitise1()"><i class="fa fa-plus"></i></button>
@@ -129,6 +144,8 @@
                                             <th class="text-center">วันเดินทาง</th>
                                             <th class="text-center">Ticketing date</th>
                                             <th class="text-center" >Departure date</th>
+                                            <th class="text-center">Ticketing date cn</th>
+                                            <th class="text-center" >Departure date cn</th>
                                             <th class="text-center" style="width:5%">
                                                 <button type="button" class="btn btn-primary"
                                                     onclick="addexperitise2()"><i class="fa fa-plus"></i></button>
@@ -151,6 +168,8 @@
                                             <tr>
                                                 <th class="text-center">รายละเอียดโปรโมชั่น</th>
                                                 <th class="text-center">Promotion Detail</th>
+                                                <th class="text-center">Promotion Detail cn</th>
+
                                                 <th class="text-center" style="width:5%">
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="addexperitise3()"><i class="fa fa-plus"></i></button>
@@ -316,6 +335,8 @@
         row += '<tr id="row'+newcount+'">';
         row += '<td><input type="text" class="form-control" name="ticket_detail_th[]"></td>';
         row += '<td><input type="text" class="form-control" name="ticket_detail_en[]"></td>';
+        row += '<td><input type="text" class="form-control" name="ticket_detail_cn[]"></td>';
+
         row+='<td class="text-center"><a href="javascript:;" onclick="delexperitise1('+newcount+')"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>';
         row += '</tr>';
         
@@ -335,8 +356,12 @@
             row += '<tr id="rowb'+newcount+'">';
             row += '<td><input type="text" class="form-control" name="ticket_date_th[]"></td>';
             row += '<td><input type="text" class="form-control" name="ticket_date_en[]"></td>';
+            row += '<td><input type="text" class="form-control" name="ticket_date_cn[]"></td>';
+
             row += '<td><input type="text" class="form-control" name="ticket_date_depart_th[]"></td>';
             row += '<td><input type="text" class="form-control" name="ticket_date_depart_en[]"></td>';
+            row += '<td><input type="text" class="form-control" name="ticket_date_depart_cn[]"></td>';
+
             row+='<td class="text-center"><a href="javascript:;" onclick="delexperitise2('+newcount+')"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>';
             row += '</tr>';
             
@@ -356,6 +381,8 @@
                 row += '<tr id="rowb'+newcount+'">';
                 row += '<td><input type="text" class="form-control" name="ticket_promo_name_th[]"></td>';
                 row += '<td><input type="text" class="form-control" name="ticket_promo_name_en[]"></td>';
+                row += '<td><input type="text" class="form-control" name="ticket_promo_name_cn[]"></td>';
+
                 row+='<td class="text-center"><a href="javascript:;" onclick="delexperitise3('+newcount+')"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>';
                 row += '</tr>';
                 

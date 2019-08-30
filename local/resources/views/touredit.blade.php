@@ -56,9 +56,11 @@
                                 <h5> ภาษาไทย</h5>
                             </div>
                             <div class="col-sm-6">
-                                <h5> Englist</h5>
+                                <h5> English</h5>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <h5> China</h5>
+                                </div>
                         </div>
 
                         <div class="form-group row col-12">
@@ -80,25 +82,33 @@
 
 
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> แพ็คเกจ :</label>
                                 <input type="text" class="form-control" name="tour_name_th" 
                                 value="{{$tourredit[0]->tour_name_th}}"
                                     autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Package :</label>
                                 <input type="text" class="form-control" name="tour_name_en" 
                                 value="{{$tourredit[0]->tour_name_en}}"    autocomplete="off">
                             </div>
+                            <div class="col-sm-4">
+                                    <label> Package :</label>
+                                    <input type="text" class="form-control" name="tour_name_cn" 
+                                    value="{{$tourredit[0]->tour_name_cn}}"    autocomplete="off">
+                                </div>
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <h5> รายละเอียด</h5>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <h5> Detail</h5>
                             </div>
+                            <div class="col-sm-4">
+                                    <h5> Detail</h5>
+                                </div>
 
                         </div>
                         <div class="form-group row col-12">
@@ -109,11 +119,11 @@
 
                                 <select name="tour_conti_id" id="country_continent_id" class="form-control"
                                     required>
-                                    <option value="{{$tourredit[0]->tour_conti_id}}">{{$tourredit[0]->continent_name_th}} / {{$tourredit[0]->continent_name_en}}</option>
+                                    <option value="{{$tourredit[0]->tour_conti_id}}">{{$tourredit[0]->continent_name_th}} / {{$tourredit[0]->continent_name_en}} / {{$tourredit[0]->continent_name_cn}}</option>
                                     <option value="">เลือกทวีป</option>
                                     @foreach($cont_all as $key => $r)
                                     <option value="{{ $r->continent_id }}">
-                                        {{ $r->continent_name_th.' :: '.$r->continent_name_en  }}
+                                        {{ $r->continent_name_th.' :: '.$r->continent_name_en.' :: '.$r->continent_name_cn  }}
                                     </option>
                                     @endforeach
                                 </select>
@@ -125,7 +135,7 @@
 
                                 {{-- select2 ajax query --}}
                                 <select name="tour_count_id" id="tour_count_id" class="form-control col-sm-12" required >
-                                        <option value="{{ $tourredit[0]->tour_count_id}}">{{ $tourredit[0]->country_name_th.' :: '.$tourredit[0]->country_name_en  }}</option>
+                                        <option value="{{ $tourredit[0]->tour_count_id}}">{{ $tourredit[0]->country_name_th.' :: '.$tourredit[0]->country_name_en.' :: '.$tourredit[0]->country_name_cn  }}</option>
                                         <option>---- กรุณาเลือก ----</option>
                                
 
@@ -136,62 +146,78 @@
                                 <label class="col-sm-2 col-form-label">จังหวัด / County</label>
                                 <div class="col-sm-12">
                                         <select name="tour_county_id" id="countyshow" class="form-control" required>
-                                                <option value="{{ $tourredit[0]->tour_county_id}}">{{ $tourredit[0]->county_name_th.' :: '.$tourredit[0]->county_name_en  }}</option>
+                                                <option value="{{ $tourredit[0]->tour_county_id}}">{{ $tourredit[0]->county_name_th.' :: '.$tourredit[0]->county_name_en.' :: '.$tourredit[0]->county_name_cn  }}</option>
                                                 <option>---- กรุณาเลือก ----</option>
                                         </select>
                                 </div>
                         </div>
                         <div class="form-group row col-12">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <label> ราคา :</label>
                                     <input type="text" class="form-control" name="tour_pri_th" 
                                     value="{{$tourredit[0]->tour_pri_th}}"   autocomplete="off">
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <label> Price :</label>
                                     <input type="text" class="form-control" name="tour_pri_en" 
                                     value="{{$tourredit[0]->tour_pri_en}}"    autocomplete="off">
                                 </div>
-    
+                                <div class="col-sm-4">
+                                        <label> Price :</label>
+                                        <input type="text" class="form-control" name="tour_pri_cn" 
+                                        value="{{$tourredit[0]->tour_pri_cn}}"    autocomplete="off">
+                                    </div>
                             </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> สายการบิน :</label>
-                                <input type="text" class="form-control" name="tour_airline_en" 
+                                <input type="text" class="form-control" name="tour_airline_th" 
                                 value="{{$tourredit[0]->tour_airline_th}}"   autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Airline :</label>
-                                <input type="text" class="form-control" name="tour_airline_th" 
+                                <input type="text" class="form-control" name="tour_airline_en" 
                                 value="{{$tourredit[0]->tour_airline_en}}"    autocomplete="off">
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> Airline :</label>
+                                    <input type="text" class="form-control" name="tour_airline_ch" 
+                                    value="{{$tourredit[0]->tour_airline_cn}}"    autocomplete="off">
+                                </div>
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> ระยะเวลา :</label>
                                 <input type="text" class="form-control" name="tour_time_th" 
                                 value="{{$tourredit[0]->tour_time_th}}"    autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Period Of Time :</label>
-                                <input type="text" class="form-control" name="tour_time_en" 
+                                <input type="text" class="form-control" name="tour_time_cn" 
                                 value="{{$tourredit[0]->tour_time_en}}"    autocomplete="off">
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> Period Of Time :</label>
+                                    <input type="text" class="form-control" name="tour_time_cn" 
+                                    value="{{$tourredit[0]->tour_time_cn}}"    autocomplete="off">
+                                </div>
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> ช่วงเวลา :</label>
                                 <input type="text" class="form-control" name="tour_duration_th" 
                                 value="{{$tourredit[0]->tour_duration_th}}"    autocomplete="off">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Duration :</label>
                                 <input type="text" class="form-control" name="tour_duration_en" 
                                 value="{{$tourredit[0]->tour_duration_en}}"    autocomplete="off">
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> Duration :</label>
+                                    <input type="text" class="form-control" name="tour_duration_cn" 
+                                    value="{{$tourredit[0]->tour_duration_cn}}"    autocomplete="off">
+                                </div>
                         </div>
 
                         <div class="form-group row col-12">
@@ -200,9 +226,11 @@
                                 <table class="table table-bordered" id="travel">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">วันเดินทางไป - กลับ</th>
+                                            <th class="text-center">วันเดินทางไป - กลับ </th>
                                             <th class="text-center">ราคา</th>
-                                            <th class="text-center">Travel date - Return date</th>
+                                            <th class="text-center">Travel - Return date</th>
+                                            <th class="text-center" >Price</th>
+                                            <th class="text-center">Travel - Return date</th>
                                             <th class="text-center" >Price</th>
                                             <th class="text-center" style="width:5%">
                                                 <button type="button" class="btn btn-primary"
@@ -226,6 +254,8 @@
                                                             <td><input type="text" value="{{$item2->tr_date_pri_th}}" class="form-control" name="tr_date_pri_th[]"></td>
                                                             <td><input type="text" value="{{$item2->tr_date_en}}" class="form-control" name="tr_date_en[]"></td>
                                                             <td><input type="text" value="{{$item2->tr_date_pri_en}}" class="form-control" name="tr_date_pri_en[]"></td>
+                                                            <td><input type="text" value="{{$item2->tr_date_cn}}" class="form-control" name="tr_date_cn[]"></td>
+                                                            <td><input type="text" value="{{$item2->tr_date_pri_cn}}" class="form-control" name="tr_date_pri_cn[]"></td>
                                                             <td class="text-center"><a href="javascript:;" id="{{ $item2->tr_date_id }}" onclick="tradel({{$item2->tr_date_id}})"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>
                                                         </tr>
                                                  @endforeach
@@ -237,48 +267,65 @@
                         </div>
                     
                         <div class="form-group row col-12">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <label> รายละเอียดทัวร์</label>
                                     <textarea rows="5" cols="5" class="form-control" name="tour_des_th" placeholder="">
                                         {{$tourredit[0]->tour_des_th}}
                                     </textarea>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <label> Detail Tour</label>
                                     <textarea rows="5" cols="5" class="form-control" name="tour_des_en" placeholder="">
                                             {{$tourredit[0]->tour_des_en}}
                                     </textarea>
                                 </div>
+                                <div class="col-sm-4">
+                                        <label> Detail Tour</label>
+                                        <textarea rows="5" cols="5" class="form-control" name="tour_des_cn" placeholder="">
+                                                {{$tourredit[0]->tour_des_cn}}
+                                        </textarea>
+                                    </div>
                             </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> รายละเอียดโปรแกรม</label>
                                 <textarea rows="5" cols="5" class="form-control" name="tour_detail_th" placeholder="">
                                         {{$tourredit[0]->tour_detail_th}}
                                 </textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Program Tour Detail</label>
                                 <textarea rows="5" cols="5" class="form-control" name="tour_detail_en" placeholder="">
                                         {{$tourredit[0]->tour_detail_en}}
                                 </textarea>
                             </div>
-
+                            <div class="col-sm-4">
+                                    <label> Program Tour Detail</label>
+                                    <textarea rows="5" cols="5" class="form-control" name="tour_detail_cn" placeholder="">
+                                            {{$tourredit[0]->tour_detail_cn}}
+                                    </textarea>
+                                </div>
 
                         </div>
                         <div class="form-group row col-12">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> เงื่อนไขโปรแกรม</label>
                                 <textarea rows="5" cols="5" class="form-control" name="tour_term_th" placeholder="">
                                     {{$tourredit[0]->tour_term_th}}
                                 </textarea>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <label> Term of Program</label>
                                 <textarea rows="5" cols="5" class="form-control" name="tour_term_en" placeholder="">
                                         {{$tourredit[0]->tour_term_en}}
                                 </textarea>
                             </div>
+                            <div class="col-sm-4">
+                                    <label> Term of Program</label>
+                                    <textarea rows="5" cols="5" class="form-control" name="tour_term_cn" placeholder="">
+                                            {{$tourredit[0]->tour_term_cn}}
+                                    </textarea>
+                                </div>
                         </div>
 
                         <div class="form-group">
@@ -404,7 +451,7 @@
                         $('#countyshow').empty();
                             item += '<option value="">เลือกประเทศ</option>';
                             $.each(data,function(k,v){
-                               item += '<option value="'+v.country_id+'">'+v.country_name_th+' / '+v.country_name_en+'</option>'; 
+                               item += '<option value="'+v.country_id+'">'+v.country_name_th+' / '+v.country_name_en+' / '+v.country_name_cn+'</option>'; 
                             });
                             $('#tour_count_id').append(item);
                         
@@ -444,7 +491,7 @@
                             $('#countyshow').empty();
                                 item += '<option value="">เลือกจังหวัด</option>';
                                 $.each(data,function(k,v){
-                                   item += '<option value="'+v.county_id+'">'+v.county_name_th+' / '+v.county_name_en+'</option>'; 
+                                   item += '<option value="'+v.county_id+'">'+v.county_name_th+' / '+v.county_name_en+' / '+v.county_name_cn+'</option>'; 
                                 });
                                 $('#countyshow').append(item);
                             
@@ -545,6 +592,8 @@
         row += '<td><input type="text" class="form-control" name="tr_date_pri_th[]"></td>';
         row += '<td><input type="text" class="form-control" name="tr_date_en[]"></td>';
         row += '<td><input type="text" class="form-control" name="tr_date_pri_en[]"></td>';
+        row += '<td><input type="text" class="form-control" name="tr_date_cn[]"></td>';
+        row += '<td><input type="text" class="form-control" name="tr_date_pri_cn[]"></td>';
         row+='<td class="text-center"><a href="javascript:;" onclick="delexperitise('+newcount+')"><i class="fa fa-trash text-danger" data-popup="tooltip" title="Delete"></i></a></td>';
         row += '</tr>';
         

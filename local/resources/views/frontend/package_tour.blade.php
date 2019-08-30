@@ -137,19 +137,35 @@
                         <div class="col-12">
                             <div class="tour-program">
                                 <h4><span>
-                                        {{Session::get('lang') == 'th' ? $counti_all[0]->continent_name_th : $counti_all[0]->continent_name_en}}
-                                    </span> {{Session::get('lang') == 'th' ? 'โปรแกรม ทัวร์' :  'Tour Program'}}</h4>
+                                        {{Session::get('lang') == 'th' ? $counti_all[0]->continent_name_th : ''}}
+                                        {{Session::get('lang') == 'en' ? $counti_all[0]->continent_name_en : ''}}
+                                        {{Session::get('lang') == 'cn' ? $counti_all[0]->continent_name_cn : ''}}
+
+                                    </span> 
+                                    {{Session::get('lang') == 'th' ? 'โปรแกรม ทัวร์' :  ''}}
+                                    {{Session::get('lang') == 'en' ? 'Tour Program' :  ' '}}
+                                    {{Session::get('lang') == 'cn' ? '旅遊計劃' :  ' '}}
+
+                                </h4>
                             </div>
 
 
                             <div id="exTab1">
                                 <ul class="nav nav-pills">
                                     <li class="active">
-                                        <a href="#a0" data-toggle="tab">{{Session::get('lang') == 'th' ? 'ทั้งหมด' :  'All'}}</a>
+                                        <a href="#a0" data-toggle="tab">
+                                            {{Session::get('lang') == 'th' ? 'ทั้งหมด' :  ''}}
+                                            {{Session::get('lang') == 'en' ? 'All' :  ''}}
+                                            {{Session::get('lang') == 'cn' ? '所有' :  ''}}
+
+                                        </a>
                                     </li>
                                     @foreach ($count_all as $key => $item)
                                     <li><a href="#a{{ $key+1 }}" data-toggle="tab">
-                                            {{Session::get('lang') == 'th' ?  $item->country_name_th :  $item->country_name_en}}
+                                            {{Session::get('lang') == 'th' ?  $item->country_name_th :   ''}}
+                                            {{Session::get('lang') == 'en' ?  $item->country_name_en :   ''}}
+                                            {{Session::get('lang') == 'cn' ?  $item->country_name_cn :   ''}}
+
                                         </a>
                                     </li>
                                     @endforeach
@@ -176,13 +192,25 @@
                                             <div class="text-package">
                                                 <h6><i class="fa fa-calendar" aria-hidden="true"></i>
                                                     {{ substr($r->created_at,0,10)}}</h6>
-                                                <h3>{{Session::get('lang') == 'th' ? $r->tour_name_th :  $r->tour_name_en}}
+                                                <h3>
+                                                    {{Session::get('lang') == 'th' ? $r->tour_name_th :  ''}}
+                                                    {{Session::get('lang') == 'en' ? $r->tour_name_en :  ''}}
+                                                    {{Session::get('lang') == 'cn' ? $r->tour_name_cn :  ''}}
+
                                                 </h3>
-                                                <p>{{Session::get('lang') == 'th' ? $r->tour_des_th :  $r->tour_des_en}}
+                                                <p>
+                                                    {{Session::get('lang') == 'th' ? $r->tour_des_th :  ''}}
+                                                    {{Session::get('lang') == 'en' ? $r->tour_des_en :  ''}}
+                                                    {{Session::get('lang') == 'cn' ? $r->tour_des_cn :  ''}}
+
                                                 </p>
                                                 <div class="view-details">
                                                     <a href="{{ route('readpackage_tour',array('cd'=>$r->tour_id))}}">
-                                                            {{Session::get('lang') == 'th' ? 'ดูรายละเอียด' :  'View Details'}} </a>
+                                                            {{Session::get('lang') == 'th' ? 'ดูรายละเอียด' :  ''}}
+                                                            {{Session::get('lang') == 'en' ? 'View Details' :  ''}}
+                                                            {{Session::get('lang') == 'cn' ? '查看詳情' :  ''}}
+
+                                                         </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,12 +233,19 @@
                                             <div class="text-package">
                                                 <h6><i class="fa fa-calendar" aria-hidden="true"></i>
                                                     {{substr($r->created_at,0,10)}}</h6>
-                                                <h3>{{Session::get('lang') == 'th' ? $r->tour_name_th : $r->tour_name_en}}
+                                                <h3>
+                                                    {{Session::get('lang') == 'th' ? $r->tour_name_th :  ''}}
+                                                    {{Session::get('lang') == 'en' ? $r->tour_name_en :  ''}}
+                                                    {{Session::get('lang') == 'cn' ? $r->tour_name_cn :  ''}}
+
                                                 </h3>
                                                 <p>{{ $r->tour_des_th}}</p>
                                                 <div class="view-details">
-                                                    <a href="{{ route('readpackage_tour',array('cd'=>$r->tour_id))}}">view
-                                                        details</a>
+                                                    <a href="{{ route('readpackage_tour',array('cd'=>$r->tour_id))}}">
+                                                            {{Session::get('lang') == 'th' ? 'ดูรายละเอียด' :  ''}}
+                                                            {{Session::get('lang') == 'en' ? 'View Details' :  ''}}
+                                                            {{Session::get('lang') == 'cn' ? '查看詳情' :  ''}}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>

@@ -35,9 +35,9 @@
                             @foreach ($ticket_all as $key => $r)
                         <tr>
                             <th class="text-center" scope="row">{{$key+1}}</th>
-                        <td>{{ $r->ticket_name_th}} / {{ $r->ticket_name_en}}</td>
+                        <td>{{ $r->ticket_name_th}} / {{ $r->ticket_name_en}} / {{ $r->ticket_name_cn}}</td>
                         
-                        <td>{{ $r->ticket_pri_th}} / {{$r->ticket_pri_en}}</td>
+                        <td>{{ $r->ticket_pri_th}} / {{$r->ticket_pri_en}} / {{$r->ticket_pri_cn}}</td>
                             <td class="icon-btn">
                             <a href="{{ url('ticketedit/'.$r->ticket_id)}}" class="btn btn-warning btn-sm  waves-effect waves-light"><i class="fa fa-pencil  "></i> </a>                            
                             <button type="button" id="{{ $r->ticket_id }}" class="btn btn-danger btn-sm " onclick="ticketdel({{ $r->ticket_id }})">

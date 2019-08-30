@@ -32,7 +32,12 @@
                                     <div class="img_ticket">
                                       <img src="{{ asset('local/assets/images/ticket/'.$tickett[0]->ticket_img)}}" alt="Avatar" class="image_ticket" style="width:100%">
                                       <div class="middle_ticket">
-                                      <a href="{{url('read_ticket/'.$tickett[0]->ticket_id)}}"><div class="text_ticket">{{Session::get('lang') == 'th' ? 'อ่านเพิ่มเติม' : 'ReadMore'}} </div></a>
+                                      <a href="{{url('read_ticket/'.$tickett[0]->ticket_id)}}"><div class="text_ticket">
+                                          {{Session::get('lang') == 'th' ? 'อ่านเพิ่มเติม' : ''}}
+                                          {{Session::get('lang') == 'en' ? 'ReadMore' : ''}}
+                                          {{Session::get('lang') == 'cn' ? '閱讀更多' : ''}}
+
+                                        </div></a>
                                       </div>
                                     </div>
                                 </div>
@@ -44,7 +49,11 @@
                                         <div class="img_ticket">
                                           <img src="{{ asset('local/assets/images/ticket/'.$r->ticket_img)}}" alt="Avatar" class="image_ticket" style="width:100%">
                                           <div class="middle_ticket">
-                                             <a href="{{url('read_ticket/'.$r->ticket_id)}}"><div class="text_ticket">{{Session::get('lang') == 'th' ? 'อ่านเพิ่มเติม' : 'ReadMore'}} </div></a>
+                                             <a href="{{url('read_ticket/'.$r->ticket_id)}}"><div class="text_ticket">
+                                                    {{Session::get('lang') == 'th' ? 'อ่านเพิ่มเติม' : ''}}
+                                                    {{Session::get('lang') == 'en' ? 'ReadMore' : ''}}
+                                                    {{Session::get('lang') == 'cn' ? '閱讀更多' : ''}}
+                                                </div></a>
                                           </div>
                                         </div>
                                         
@@ -72,7 +81,12 @@
                                         <div class="img_ticket">
                                           <img src="{{ asset('local/assets/images/ticket/'.$r2->ticket_img)}}" alt="Avatar" class="image_ticket" style="width:100%">
                                           <div class="middle_ticket">
-                                             <a href="{{url('read_ticket/'.$r2->ticket_id)}}"><div class="text_ticket">{{Session::get('lang') == 'th' ? 'อ่านเพิ่มเติม' : 'ReadMore'}} </div></a>
+                                             <a href="{{url('read_ticket/'.$r2->ticket_id)}}"><div class="text_ticket">
+                                                    {{Session::get('lang') == 'th' ? 'อ่านเพิ่มเติม' : ''}}
+                                                    {{Session::get('lang') == 'en' ? 'ReadMore' : ''}}
+                                                    {{Session::get('lang') == 'cn' ? '閱讀更多' : ''}} 
+                                                
+                                                </div></a>
                                           </div>
                                         </div>
                                     </div>

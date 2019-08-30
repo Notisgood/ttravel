@@ -12,6 +12,10 @@ Route::get('/th',function(){
  Session::put('lang', 'th');
  return back();
 });
+Route::get('/cn',function(){
+    Session::put('lang', 'cn');
+    return back();
+   });
 
 Auth::routes();
 Route::get('test','homeController@blank');
